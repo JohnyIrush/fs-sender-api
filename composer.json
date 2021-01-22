@@ -1,0 +1,25 @@
+{
+    "name": "cchivhima/zipcoinremit-sendfood",
+    "description": "Send food module for zipcoinremit, powered by softwarescares technologies.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "JohnyIrush",
+            "email": "johnydanxin@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Cchivhima\\Sendfood\\": "src/"
+        },
+        "classmap": [
+            "src/Http/Controllers"
+        ]
+
+        }
+    
+
+}

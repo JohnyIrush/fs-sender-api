@@ -1,0 +1,51 @@
+php artisan make:controller Controller -r
+php artisan serve
+php artisan make:model Category -m
+php artisan make:seed ImagesSeeder
+php artisan db:seed
+php artisan make:model hamperItem -m
+php artisan make:model hamperImage -m
+
+php artisan make:model Item -m
+php artisan make:model Drink -m
+php artisan make:seed HamperSeeder
+php artisan make:seed HamperItemsSeeder
+php artisan make:seed DrinkSeeder
+
+
+Composer dump-autoload
+
+php artisan migrate:fresh
+php artisan cache:clear
+php artisan config:clear
+php artisan config:cache
+php artisan vendor:publish --tag=public --force
+php artisan vendor:publish --tag=superblog-components --force
+php artisan vendor:publish --tag=vue --force
+php artisan vendor:publish --tag=seeders --force
+php artisan migrate
+
+npm run watch
+
+npm install vue-sweetalert2
+
+php artisan storage:link
+
+chmod +x myscript.php
+php myscript.php
+
+cd package/softwarescares/superblog
+cd softwarescares-superblog
+
+php artisan make:command SuperBlogInstaller
+
+composer require softwarescares/superblog
+composer remove softwarescares/superblog
+
+php artisan superblog:install
+
+composer require  laravel/ui
+
+npm install tiptap-extensions
+
+php artisan make:resource PostResource

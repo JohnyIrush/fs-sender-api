@@ -1,0 +1,143 @@
+/** Layouts **/
+.overflow-scroll:hover {
+    overflow-y: scroll !important;
+    scrollbar-width: thin !important;
+
+}
+
+.hide-x-overflow{
+    overflow-x: hidden !important;
+}
+.hide-y-overflow{
+    overflow: hidden !important;
+}
+
+/** style scrollbar **/
+   ::-webkit-scrollbar {
+    border-radius: 10px;       /* roundness of the scroll thumb */
+    border: 2px solid black;  /* creates padding around scroll thumb */
+    scrollbar-width: thin !important;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border: 2px solid ;
+    background: #888;
+  }
+
+  .border-line{
+      border-bottom: solid;
+  }
+
+
+/** Layouts **/
+
+
+/** positions **/
+.fixed-pos{
+    position: fixed !important;
+} 
+
+.force-margin-left{
+    margin-left: 10px;
+}
+/*
+.fixed-pos{
+    position: fixed !important;
+} */
+/*
+.sidebarminimizer-pos{
+ top: -50% !important;
+ position: relative;
+} */
+/** positions **/
+
+/** Dimensions **/
+.sidebar-content-height{
+    height:  100vh !important;
+    width: 100%;
+}
+
+.single-product-height{
+    height: 75vh;
+
+}
+
+.cart-item-card-height{
+    height: 75vh;
+}
+
+/** Dimensions **/
+
+/*
+.sidebarminimizer-height{
+    height: 10vh !important;
+    width: 100%;
+} */
+/** Dimensions **/
+
+/**Colors**/
+.bg-color-white{
+    background-color: white !important;
+}
+
+.text-color-white{
+    color: white !important;
+}
+
+/** text **/
+.bg-color-whitedark{
+    background-color: rgb(245, 207, 136)!important;
+}
+
+.text-color-darkblue{
+    background-color: #1d2a5a !important;
+  }
+
+.text-color-orange{
+  text-decoration: #bf7b33 !important;
+}
+/*
+li:hover{
+    background-color: #bf7b33 !important;
+    color: white !important;
+} */
+.text-color-dark{
+    color: black !important;
+}
+
+.text-color-black{
+    color: black;
+}
+
+.text-color-bluelight{
+    color: rgb(51, 102, 240) !important;
+}
+
+.text-color-greenlight{
+    color: rgb(92, 160, 25) ! important;
+}
+.text-color-yellowlight{
+    color: rgb(236, 162, 25) !important;
+}
+
+/**bg**/
+.bg-color-yellowlight{
+    background-color: rgb(236, 162, 25) !important;
+}
+
+.text-color-purplelight{
+    color: rgb(137, 14, 238) !important;
+}
+
+.text-color-graylight{
+    color:  rgb(107, 55, 55) !important;
+}
+
+.text-color-bluelighter{
+    color: rgb(64, 180, 219) !important;
+}
+.text-color-pinklight{
+    color: rgb(245, 108, 131) !important;
+}
+
+/**Colors**/

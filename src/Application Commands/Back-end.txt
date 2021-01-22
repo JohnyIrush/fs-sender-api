@@ -1,0 +1,2 @@
+Posts -> (id,title,description,category,featured image,post)
+Categories -> (id,title,description,featured image)
