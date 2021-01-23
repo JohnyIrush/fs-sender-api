@@ -4,6 +4,14 @@ namespace Cchivhima\Sendfood\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Cchivhima\Sendfood\Http\Drivers\Cart;
+
+use Session;
+
+use DB;
+
+use Cchivhima\Sendfood\Models\Hamper;
+
 class PurchaseController extends Controller
 {
     /**
@@ -11,72 +19,68 @@ class PurchaseController extends Controller
      */
     public function cart()
     {
-      return view('sendfood::Plugins.Purchase.cart');
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+        //dd($cart);
+        return view('sendfood::Plugins.Purchase.cart')->with([
+            'cart'=>$cart
+        ]);
+    }
+
+    /** hamper adding to cart **/
+
+    /**
+     * Buyer adds hamper into the cart
+    */
+    public function addtocart(Request $request,$id){
+        $hamper = Hamper::find($id);
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->add($hamper,$hamper->id);
+        //dd($hamper);
+        $request->session()->put('cart',$cart);
+        //dd($cart);
+        //return redirect()->route('shop');
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * reduce hamper added to the cart
+    */
+    public function reduceProductByOne($id){
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->reduceByOne($id);
+        Session::put('cart',$cart);
+    }
+
+     /**
+      * remove hamper added
      */
-    public function create()
-    {
-        //
+    public function removeItem($id){
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->removeItem($id);
+        //dd($cart);
+        if ($cart) {
+         Session::put('cart',$cart);
+        }else{
+            Session::forget('cart');
+        }
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * Selected products
+     * cart
      */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+       public function getCartProducts()
     {
-        //
-    }
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+        return response()->json($cart,200);
+   } 
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+   /** hamper adding to cart **/
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

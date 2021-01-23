@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Cchivhima\Sendfood\Http\Drivers;
 
 class Cart
 {
