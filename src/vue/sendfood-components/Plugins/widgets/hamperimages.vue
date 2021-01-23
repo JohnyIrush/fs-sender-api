@@ -5,7 +5,7 @@
         <div class="carousel-item active"  >
             <img :src="imageOne" class="d-block w-100" alt="...">
         </div>
-        <div class="carousel-item" v-for="image in images" :key='image'>
+        <div class="carousel-item" v-for="(image, index) in images" :key='index'>
           <img :src="image.image" class="d-block w-100" alt="...">
         </div>
       </div>

@@ -22,7 +22,10 @@ class DatabaseSeeder extends Seeder
             DrinkCategorySeeder::class,
             HamperItemsSeeder::class,
             HamperImagesSeeder::class,
-            ProductCategorySeeder::class
+            ProductCategorySeeder::class,
+            BeneficiarySeeder::class,
+            UsersTableSeeder::class,
+            CountriesTableSeeder::class
             ]);
     }
 }

@@ -34,6 +34,26 @@
 }
 
 
+/*
+.modal-backdrop.fade {
+    filter: alpha(opacity=0);
+    opacity: 0 !important;
+}
+
+.fade {
+    opacity: 0;
+    -webkit-transition: opacity .15s linehar;
+    -o-transition: opacity .15s linear;
+    transition: opacity .15s linear;
+}
+
+*/
+
+.modal-backdrop {
+    opacity: 0.5 !important;
+}
+
+
 /** Layouts **/
 
 
@@ -112,6 +132,10 @@
 
 .text-color-darkblue {
     background-color: #1d2a5a !important;
+}
+
+.txt-color-darkblue {
+    color: #1d2a5a !important;
 }
 
 .text-color-orange {

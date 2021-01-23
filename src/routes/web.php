@@ -3,7 +3,7 @@
 use Cchivhima\Sendfood\Http\Controllers\SendFoodUiController; //Import Send Food UI controller -> this controller controls all aspects of UI
 use Cchivhima\Sendfood\Http\Controllers\ProductsController; //Import Send Food Products Controller -> this controller controls all aspects of Products
 use Cchivhima\Sendfood\Http\Controllers\PurchaseController; //Import Send Food Products Purchase Controller -> this controller controls all aspects of Products purchase
-
+use Cchivhima\Sendfood\Http\Controllers\BeneficiaryController; //Import Send Food Beneficiaries Controller -> this controller controls all aspects of Beneficiaries
 /** Send food package UI **/
 Route::get('/sendfooddashboard', [SendFoodUiController::class, 'dashboard']); //render the sendfood dashboard
 /** Send food package UI **/
@@ -32,3 +32,7 @@ Route::group(['middleware' => ['web']], function () {
 });
 
 /** Send food package Products Purchase plugin **/
+
+/** Beneficiaries **/
+Route::get('/beneficiary', [BeneficiaryController::class, 'beneficiary']); //render the sendfood beneficiary Ui
+/** Beneficiaries **/
