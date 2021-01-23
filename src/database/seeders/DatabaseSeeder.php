@@ -21,7 +21,8 @@ class DatabaseSeeder extends Seeder
             DrinkSeeder::class,
             DrinkCategorySeeder::class,
             HamperItemsSeeder::class,
-            HamperImagesSeeder::class
+            HamperImagesSeeder::class,
+            ProductCategorySeeder::class
             ]);
     }
 }

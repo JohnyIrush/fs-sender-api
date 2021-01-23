@@ -23,6 +23,7 @@ class HamperSeeder extends Seeder
              'comment' => 'Hampers',
              'price' => 150,
              'discount' => 12,
+             'productcategory' =>1,
              'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]); 
 
@@ -31,6 +32,7 @@ class HamperSeeder extends Seeder
             'comment' => 'Hampers, Basic',
             'price' => 67,
             'discount' => 10,
+            'productcategory' =>1,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
        ]);  
        
@@ -39,6 +41,7 @@ class HamperSeeder extends Seeder
         'comment' => 'Hampers, Luxury Goods',
         'price' => 228,
         'discount' => 30,
+        'productcategory' =>1,
         'created_at' => Carbon::now()->format('Y-m-d H:i:s')
       ]); 
 
@@ -47,6 +50,7 @@ class HamperSeeder extends Seeder
         'comment' => 'Hampers, Luxury Goods',
         'price' => 160,
         'discount' => 14,
+        'productcategory' =>1,
         'created_at' => Carbon::now()->format('Y-m-d H:i:s')
       ]); 
 
@@ -55,6 +59,7 @@ class HamperSeeder extends Seeder
         'comment' => 'Hampers, School',
         'price' => 65,
         'discount' => 5,
+        'productcategory' =>1,
         'created_at' => Carbon::now()->format('Y-m-d H:i:s')
       ]); 
 
@@ -63,6 +68,7 @@ class HamperSeeder extends Seeder
         'comment' => 'Bulk hamper',
         'price' => 500,
         'discount' => 50,
+        'productcategory' =>1,
         'created_at' => Carbon::now()->format('Y-m-d H:i:s')
       ]); 
 
@@ -71,6 +77,7 @@ class HamperSeeder extends Seeder
         'comment' => 'Bulk hamper',
         'price' => 220,
         'discount' => 25,
+        'productcategory' =>1,
         'created_at' => Carbon::now()->format('Y-m-d H:i:s')
       ]); 
 
@@ -79,6 +86,7 @@ class HamperSeeder extends Seeder
         'comment' => 'Bulk hamper',
         'price' => 230,
         'discount' => 25,
+        'productcategory' =>1,
         'created_at' => Carbon::now()->format('Y-m-d H:i:s')
       ]); 
 
@@ -88,6 +96,7 @@ class HamperSeeder extends Seeder
         'comment' => 'Hamper',
         'price' => 50,
         'discount' => 0,
+        'productcategory' =>1,
         'created_at' => Carbon::now()->format('Y-m-d H:i:s')
       ]); 
 
@@ -97,6 +106,7 @@ class HamperSeeder extends Seeder
         'comment' => 'Hamper',
         'price' => 175,
         'discount' => 0,
+        'productcategory' =>1,
         'created_at' => Carbon::now()->format('Y-m-d H:i:s')
       ]); 
 
@@ -106,6 +116,7 @@ class HamperSeeder extends Seeder
         'comment' => 'Hamper',
         'price' => 100,
         'discount' => 0,
+        'productcategory' =>1,
         'created_at' => Carbon::now()->format('Y-m-d H:i:s')
       ]); 
 

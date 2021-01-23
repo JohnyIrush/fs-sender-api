@@ -23,6 +23,7 @@ class ItemSeeder extends Seeder
              'description' => 'Sugar 5kg',
              'image' => '/sendfoodassets/Items/IMG-20210120-WA0000.jpg',             
              'price' => 10,
+             'productcategory' => 2,
              'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
@@ -30,6 +31,7 @@ class ItemSeeder extends Seeder
             'description' => 'Margarine 500g',
             'image' => '/sendfoodassets/Items/IMG-20210120-WA0007.jpg',             
             'price' => 7,
+            'productcategory' => 2,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
        ]);
 
@@ -37,6 +39,7 @@ class ItemSeeder extends Seeder
         'description' => 'Bath soap',
         'image' => '/sendfoodassets/Items/IMG-20210120-WA0003.jpg',             
         'price' => 2,
+        'productcategory' => 2,
         'created_at' => Carbon::now()->format('Y-m-d H:i:s')
       ]);
 
@@ -44,6 +47,7 @@ class ItemSeeder extends Seeder
         'description' => 'Salt 1Kg ',
         'image' => '/sendfoodassets/Items/IMG-20210122-WA0021.jpg',             
         'price' => 3,
+        'productcategory' => 2,
         'created_at' => Carbon::now()->format('Y-m-d H:i:s')
       ]);
 
@@ -51,6 +55,7 @@ class ItemSeeder extends Seeder
         'description' => 'Cooking Oil 2L',
         'image' => '/sendfoodassets/Items/Cooking Oil 2L.jpg',             
         'price' => 7,
+        'productcategory' => 2,
         'created_at' => Carbon::now()->format('Y-m-d H:i:s')
       ]);
 
@@ -58,6 +63,7 @@ class ItemSeeder extends Seeder
         'description' => 'Sugar 10 KG ',
         'image' => '/sendfoodassets/Items/Sugar 10 KG .jpg',             
         'price' => 20,
+        'productcategory' => 2,
         'created_at' => Carbon::now()->format('Y-m-d H:i:s')
       ]);
 
@@ -65,6 +71,7 @@ class ItemSeeder extends Seeder
         'description' => 'Bar soap',
         'image' => '/sendfoodassets/Items/IMG-20210122-WA0033.jpg',             
         'price' => 2,
+        'productcategory' => 2,
         'created_at' => Carbon::now()->format('Y-m-d H:i:s')
       ]);
 
@@ -72,6 +79,7 @@ class ItemSeeder extends Seeder
         'description' => 'Raising flour 2.5Kg',
         'image' => '/sendfoodassets/Items/IMG-20210122-WA0004.jpg',             
         'price' => 7,
+        'productcategory' => 2,
         'created_at' => Carbon::now()->format('Y-m-d H:i:s')
       ]);
 
@@ -79,6 +87,7 @@ class ItemSeeder extends Seeder
         'description' => 'Corned beef',
         'image' => '/sendfoodassets/Items/IMG-20210120-WA0002.jpg',             
         'price' => 3,
+        'productcategory' => 2,
         'created_at' => Carbon::now()->format('Y-m-d H:i:s')
       ]);
 
@@ -86,6 +95,7 @@ class ItemSeeder extends Seeder
         'description' => 'M/Meal 12.5KG',
         'image' => '/sendfoodassets/Items/IMG-20210120-WA0001.jpg',             
         'price' => 15,
+        'productcategory' => 2,
         'created_at' => Carbon::now()->format('Y-m-d H:i:s')
       ]);
 
@@ -93,6 +103,7 @@ class ItemSeeder extends Seeder
         'description' => 'Colgate',
         'image' => '/sendfoodassets/Items/IMG-20210122-WA0025.jpg',             
         'price' => 2,
+        'productcategory' => 2,
         'created_at' => Carbon::now()->format('Y-m-d H:i:s')
       ]);
 
@@ -100,6 +111,7 @@ class ItemSeeder extends Seeder
         'description' => 'Rice 5Kg',
         'image' => '/sendfoodassets/Items/IMG-20210120-WA0009.jpg',             
         'price' => 13,
+        'productcategory' => 2,
         'created_at' => Carbon::now()->format('Y-m-d H:i:s')
       ]);
 
@@ -107,6 +119,7 @@ class ItemSeeder extends Seeder
         'description' => 'Rice 10Kg',
         'image' => '/sendfoodassets/Items/IMG-20210122-WA0035.jpg',             
         'price' => 22,
+        'productcategory' => 2,
         'created_at' => Carbon::now()->format('Y-m-d H:i:s')
       ]);
 
@@ -114,6 +127,7 @@ class ItemSeeder extends Seeder
         'description' => 'Rice 2Kg',
         'image' => '/sendfoodassets/Items/IMG-20210122-WA0034.jpg',             
         'price' => 8,
+        'productcategory' => 2,
         'created_at' => Carbon::now()->format('Y-m-d H:i:s')
       ]);
 
@@ -121,6 +135,7 @@ class ItemSeeder extends Seeder
         'description' => 'Mazowe 2L',
         'image' => '/sendfoodassets/Items/IMG-20210122-WA0027.jpg',             
         'price' => 3,
+        'productcategory' => 2,
         'created_at' => Carbon::now()->format('Y-m-d H:i:s')
       ]);
     }

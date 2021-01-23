@@ -25,8 +25,10 @@ Route::group(['middleware' => ['web']], function () {
 /** Send food package Products Purchase plugin **/
 Route::group(['middleware' => ['web']], function () {
     Route::get('/cart', [PurchaseController::class, 'cart']); //render the sendfood cart items
-    Route::get('/addtocart/{id}', [PurchaseController::class, 'addtocart'])->name('addtocart'); //add product to cart
+    Route::post('/addtocart/{id}', [PurchaseController::class, 'addtocart'])->name('addtocart'); //add product to cart
     Route::get('/getcartproducts',[PurchaseController::class, 'getCartProducts'])->name('getcartproducts'); //cart products
+    Route::post('/removecartproduct/{id}',[PurchaseController::class, 'removeCartProduct'])->name('removecartproduct'); //Remove cart products
+    Route::post('/reducecartproduct/{id}',[PurchaseController::class, 'reduceProductByOne'])->name('reducecartproduct'); //Remove cart products
 });
 
 /** Send food package Products Purchase plugin **/

@@ -18,6 +18,7 @@ class CreateHampersTable extends Migration
             $table->string('name');
             $table->string('comment');
             $table->integer('discount');
+            $table->bigInteger('productcategory')->unsigned();
             $table->integer('price');
             $table->timestamps();
         });

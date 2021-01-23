@@ -20,6 +20,7 @@ class CreateDrinksTable extends Migration
             $table->bigInteger('category');
             $table->integer('price');
             $table->string('comment');
+            $table->bigInteger('productcategory')->unsigned();
             $table->timestamps();
         });
     }

@@ -12,8 +12,14 @@ use DB;
 
 use Cchivhima\Sendfood\Models\Hamper;
 
+use Cchivhima\Sendfood\Models\Item;
+
+use Cchivhima\Sendfood\Models\Drink;
+
 class PurchaseController extends Controller
 {
+
+    public $newcartproduct;
     /**
      * Show Items added into the cart
      */
@@ -33,30 +39,60 @@ class PurchaseController extends Controller
      * Buyer adds hamper into the cart
     */
     public function addtocart(Request $request,$id){
-        $hamper = Hamper::find($id);
-        $oldCart = Session::has('cart') ? Session::get('cart') : null;
-        $cart = new Cart($oldCart);
-        $cart->add($hamper,$hamper->id);
-        //dd($hamper);
-        $request->session()->put('cart',$cart);
-        //dd($cart);
-        //return redirect()->route('shop');
+        //dd($request);
+        if ($request->category==1) {
+            $this->newcartproduct = Hamper::find($id);
+            $oldCart = Session::has('cart') ? Session::get('cart') : null;
+            $cart = new Cart($oldCart);
+            $cart->add($this->newcartproduct,$this->newcartproduct->id,$request->category);
+            $request->session()->put('cart',$cart);
+        }
+        elseif($request->category==2){
+            $this->newcartproduct = Item::find($id);
+            $oldCart = Session::has('cart') ? Session::get('cart') : null;
+            $cart = new Cart($oldCart);
+            $cart->add($this->newcartproduct,$this->newcartproduct->id,$request->category);
+            $request->session()->put('cart',$cart);
+        }
+        elseif ($request->category==3) {
+            $this->newcartproduct = Drink::find($id);
+            $oldCart = Session::has('cart') ? Session::get('cart') : null;
+            $cart = new Cart($oldCart);
+            $cart->add($this->newcartproduct,$this->newcartproduct->id,$request->category);
+            $request->session()->put('cart',$cart);
+        }
+
     }
 
     /**
      * reduce hamper added to the cart
     */
-    public function reduceProductByOne($id){
+    public function reduceProductByOne(Request $request ,$id){
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new Cart($oldCart);
-        $cart->reduceByOne($id);
+        $cart->reduceByOne($id,$request->category);
         Session::put('cart',$cart);
     }
 
      /**
       * remove hamper added
      */
-    public function removeItem($id){
+    public function removeCartProduct(Request $request ,$id){
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->removeItem($id,$request->category);
+        //dd($cart);
+        if ($cart) {
+         Session::put('cart',$cart);
+        }else{
+            Session::forget('cart');
+        }
+    }
+
+     /**
+      * Add more Products
+     */
+    public function addMoreCartProduct(Request $request,$id){
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new Cart($oldCart);
         $cart->removeItem($id);

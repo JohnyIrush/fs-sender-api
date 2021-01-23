@@ -1,6 +1,6 @@
 <template>
 
-<button @click="shopOrCheckout(id)" class="btn ml-5 bg-color-yellowlight text-white"> ADD TO CART</button>
+<button @click="shopOrCheckout()" class="btn ml-5 bg-color-yellowlight text-white"> ADD TO CART</button>
  
 </template>
 
@@ -9,24 +9,19 @@
 import shopOrCheckout from './shoporcheckout'
 
 export default {
-    props: ['id'],
+    props: ['id','productcategory'],
     components:{
         shopOrCheckout
     },
     methods:{
-       shopOrCheckout(id) {
-
-           axios.get('addtocart' + '/' + id)
+       shopOrCheckout() {
+          alert(this.id + ' ' + this.productcategory);
+          const category = {
+              category: this.productcategory
+          }
+           axios.post('addtocart' + '/' + this.id, category)
            .then((response)=>{
-               /*
-              this.$swal({
-                position: 'top-end',
-                icon: 'success',
-                title: 'Your Account Details was Updated Successfully',
-                showConfirmButton: false,
-                timer: 1500
-              });
-               */
+                alert('Added');
            })
       }
     }
