@@ -16,7 +16,7 @@ class CreateBeneficiariesTable extends Migration
         Schema::create('beneficiaries', function (Blueprint $table) {
                 //$table->engine = 'InnoDB';
                 $table->id();
-                $table->unsignedBigInteger('users_id');
+                $table->bigInteger('user_id')->unsigned();
                 //$table->efficientUuid('uuid')->index();
                 $table->string('name', 191);
                 $table->string('address', 191);

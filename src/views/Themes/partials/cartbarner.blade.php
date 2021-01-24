@@ -5,7 +5,7 @@
 
             </li>
             <li>
-                <a href="/cart" class="btn ml-5 text-color-darkblue text-color-white" > <i class="fa fa-shopping-cart fa-2x text-white" aria-hidden="true"></i>Items  {{Session::has('cart') ? Session::get('cart')->totalQty : ''}}</a>
+                <a href="/cart" class="btn ml-5 text-color-darkblue text-color-white" > <i class="fa fa-shopping-cart text-white" aria-hidden="true"></i> <span class="mr-2">Items  {{Session::has('cart') ? Session::get('cart')->totalQty : ''}}</span> </a>
             </li>
         </ul>
     </div>

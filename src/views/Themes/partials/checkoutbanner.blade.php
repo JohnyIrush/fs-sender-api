@@ -5,7 +5,7 @@
 
             </li>
             <li>
-                <button class="btn btn-lg ml-5 text-color-darkblue text-white text-color-white" role="button" ><i class="fas fa-shopping-bag text-white mr-2"></i>  <span>Checkout </span> {{Session::has('cart') ? Session::get('cart')->totalQty : ''}} Items </button>
+                <a href="/beneficiary" class="btn btn-lg ml-5 text-color-darkblue text-white text-color-white" role="button" ><i class="fas fa-shopping-bag text-white mr-2"></i>  <span>Checkout </span> {{Session::has('cart') ? Session::get('cart')->totalQty : ''}} Items </a>
             </li>
         </ul>
     </div>

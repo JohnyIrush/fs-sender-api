@@ -19,11 +19,7 @@ class CountriesTableSeeder extends Seeder
         
         DB::table('countries')->delete();
         
-        DB::table('countries')->insert(array (
-            0 => 
-            array (
-                // => 1,
-                // => '�@�"�>@P��]8[',
+        DB::table('countries')->insert([
                 'name' => 'Afghanistan',
                 'country_code' => 'AF',
                 'dailing_code' => '93',
@@ -31,54 +27,60 @@ class CountriesTableSeeder extends Seeder
                 'currency_code' => 'AFN',
                 'created_at' => '2020-05-06 08:36:19',
                 'updated_at' => '2020-05-06 08:36:19',
-            ),
-            1 => 
-            array (
-                // => 2,
-                // => '���L��@j��X����A',
-                'name' => 'Albania',
-                'country_code' => 'AL',
-                'dailing_code' => '355',
-                'currency' => 'Albanian lek',
-                'currency_code' => 'ALL',
-                'created_at' => '2020-05-06 08:36:19',
-                'updated_at' => '2020-05-06 08:36:19',
-            ),
-            2 => 
-            array (
-                // => 3,
-            // => ')�����I���VG� �M',
-            'name' => 'Algeria',
-            'country_code' => 'DZ',
-            'dailing_code' => '213',
-            'currency' => 'Algerian dinar',
-            'currency_code' => 'DZD',
+        ]);
+
+        DB::table('countries')->insert([
+            'name' => 'Albania',
+            'country_code' => 'AL',
+            'dailing_code' => '355',
+            'currency' => 'Albanian lek',
+            'currency_code' => 'ALL',
             'created_at' => '2020-05-06 08:36:19',
             'updated_at' => '2020-05-06 08:36:19',
-        ),
-        3 => 
-        array (
-            // => 4,
-            // => '�6#�ש@��|\'���3',
-            'name' => 'American Samoa',
-            'country_code' => 'AS',
-            'dailing_code' => '1-684',
-            'currency' => 'United States dollar',
-            'currency_code' => 'USD',
-            'created_at' => '2020-05-06 08:36:19',
-            'updated_at' => '2020-05-06 08:36:19',
-        ),
+    ]);
+    
+    DB::table('countries')->insert([
+        'name' => 'Algeria',
+        'country_code' => 'DZ',
+        'dailing_code' => '213',
+        'currency' => 'Algerian dinar',
+        'currency_code' => 'DZD',
+        'created_at' => '2020-05-06 08:36:19',
+        'updated_at' => '2020-05-06 08:36:19',
+]);
+
+DB::table('countries')->insert([
+    'name' => 'American Samoa',
+    'country_code' => 'AS',
+    'dailing_code' => '1-684',
+    'currency' => 'United States dollar',
+    'currency_code' => 'USD',
+    'created_at' => '2020-05-06 08:36:19',
+    'updated_at' => '2020-05-06 08:36:19',
+]);
+
+DB::table('countries')->insert([
+    'name' => 'Andorra',
+    'country_code' => 'AD',
+    'dailing_code' => '376',
+    'currency' => 'European euro',
+    'currency_code' => 'EUR',
+    'created_at' => '2020-05-06 08:36:19',
+    'updated_at' => '2020-05-06 08:36:19',
+]);
+
+
+        
+        /*
+       
+
+
+
         4 => 
         array (
             // => 5,
             // => '�\\} ��L���UF֠�',
-            'name' => 'Andorra',
-            'country_code' => 'AD',
-            'dailing_code' => '376',
-            'currency' => 'European euro',
-            'currency_code' => 'EUR',
-            'created_at' => '2020-05-06 08:36:19',
-            'updated_at' => '2020-05-06 08:36:19',
+
         ),
         5 => 
         array (
@@ -2814,7 +2816,7 @@ array (
                 'updated_at' => '2020-05-06 08:36:21',
             ),
         ));
-        
+         */
         
     }
 }

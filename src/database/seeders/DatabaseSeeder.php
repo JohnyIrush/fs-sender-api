@@ -25,7 +25,8 @@ class DatabaseSeeder extends Seeder
             ProductCategorySeeder::class,
             BeneficiarySeeder::class,
             UsersTableSeeder::class,
-            CountriesTableSeeder::class
+            CountriesTableSeeder::class,
+            BankListSeeder::class
             ]);
     }
 }

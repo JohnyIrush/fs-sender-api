@@ -3,7 +3,7 @@
             <div class="navbar-header bg-color-white"> <a class="navbar-toggle hidden-sm hidden-md hidden-lg "
                     href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse"><i
                         class="fa fa-bars"></i></a>
-                <div class="top-left-part text-color-darkblue"><a class="logo" href="/sendfooddashboard">
+                <div class="top-left-part bg-color-whitedark"><a class="logo" href="/sendfooddashboard">
                     <b><img id="sidebar-logo" src="/sendfoodassets/avatars/logo.26cae351.png" class="img-fluid" alt="home" /></b></a>
                 </div>
                 <!--menu links-->

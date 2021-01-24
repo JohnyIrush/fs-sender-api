@@ -65,6 +65,7 @@
         <div id="page-wrapper">
             <main>
                 @yield('content')
+                <shoporcheckout></shoporcheckout>
             </main>
         </div>
         <!-- /#page-wrapper -->
@@ -92,9 +93,6 @@
 
     <script src="/sendfoodassets/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
 
-    <!--
-
-
     <script src="/sendfoodassets/pixel-html/js/jquery.slimscroll.js"></script>
 
     <script src="/sendfoodassets/pixel-html/js/waves.js"></script>
@@ -107,6 +105,15 @@
 
     <script src="/sendfoodassets/pixel-html/js/dashboard1.js"></script>
     <script src="/sendfoodassets/pixel-html/js/custom.min.js"></script>
+
+    <!--my scripts-->
+    <script src="/sendfoodassets/pixel-html/js/customizedjs.js"></script>
+    
+    <!--
+
+
+
+
     -->
     <!--<script src="/sendfoodassets/pixel-html/js/dashboard1.js"></script>-->
     <!--<script src="/sendfoodassets/plugins/bower_components/toast-master/js/jquery.toast.js"></script>-->

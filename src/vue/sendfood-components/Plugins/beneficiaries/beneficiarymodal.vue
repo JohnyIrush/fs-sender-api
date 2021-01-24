@@ -10,7 +10,7 @@
       </button>
      <div class="modal-title" id="add-benef-modal"> <h3 class="txt-color-darkblue">Add new beneficiary</h3></div>
     </div>
-    <form @submit.prevent="!editmode? createBeneficiary() : updateBeneficiary()" @keydown="form.onKeydown($event)" class="col-12 row m-0 p-0">
+    <form @submit.prevent="!editmode? createBeneficiary() : updateBeneficiary()" class="col-12 row m-0 p-0">
     <div class="modal-body txt-color-darkblue">
       <!--form-->
       
@@ -33,8 +33,13 @@
         <div class="row justify-content-center">
           <!--Beneficiary Country-->
           <div class="form-group col-12 col-sm-6 p-1"><label for="country">Country</label>
-            <select v-model="form.country" name="country" placeholder="Select a country" id="country" class="form-control" :class="{ 'is-invalid': form.errors.has('country') }">
-              <option value="" disabled="" selected="">Loading...</option>
+            <select v-model="form.country" name="country" placeholder="Select a country" id="country" class="form-control" :class="{ 'is-invalid': form.errors.has('country') }"  >
+                 <option value="1" > Kenya </option>
+                 <option value="2" > USA </option>
+                 <option value="3" > CANADA </option>
+              <!--<div v-for="(country, index) in countries" :key="index">
+             <option value="1" >{{country.name}} Kenya </option>
+              </div>-->
             </select>
             <has-error :form="form" field="country"></has-error>
           </div>
@@ -43,6 +48,9 @@
             <label for="state">Province/State</label>
             <select v-model="form.state" name="state" id="state" placeholder="Select a province/state" class="form-control" :class="{ 'is-invalid': form.errors.has('state') }">
               <option value="" disabled="" selected="">Select a country to view states</option>
+                 <option value="1" > Nairobi </option>
+                 <option value="2" > Newyork </option>
+                 <option value="3" > Canada </option>
             </select>
             <has-error :form="form" field="state"></has-error>
           </div>
@@ -55,7 +63,10 @@
          <div class="form-group col-12 col-sm-6 p-1">
            <label for="city">City</label>
            <select v-model="form.city" name="city" placeholder="Select a city" id="city" class="form-control" :class="{ 'is-invalid': form.errors.has('city') }">
-             <option value="" disabled="" selected="">Select a state</option>
+             <option value="" disabled="" selected="">Select a City</option>
+                <option value="1" > Nairobi </option>
+                 <option value="2" > Newyork </option>
+                 <option value="3" > Canada </option>
            </select>
            <has-error :form="form" field="city"></has-error>
          </div>
@@ -86,12 +97,15 @@
               <li>
                 <select v-model="form.mobileCountry" name="mobileCountry" class="form-control form-control-sm" :class="{ 'is-invalid': form.errors.has('mobileCountry') }">
                   <option>Small select</option>
+                  <option value="1">+123</option>
+                  <option value="2">+254</option>
+                  <option value="3">+288</option>
                 </select>
                 <has-error :form="form" field="mobileCountry"></has-error>
               </li>
               <li>
-                <input v-model="form.mobile" type="tel" autocomplete="tel" required="" inputmode="tel" id="mobile" name="mobile" class="form-control"  placeholder="mobile number" :class="{ 'is-invalid': form.errors.has('mobile') }">
-                <has-error :form="form" field="mobile"></has-error>
+                <input v-model="form.phone" type="tel" autocomplete="tel" required="" inputmode="tel" id="phone" name="phone" class="form-control"  placeholder="mobile number" :class="{ 'is-invalid': form.errors.has('phone') }">
+                <has-error :form="form" field="phone"></has-error>
               </li>
           </ul>
           
@@ -126,6 +140,9 @@
 import Vue from 'vue'
 import { Form, HasError, AlertError } from 'vform'
 
+Vue.component(HasError.name, HasError)
+Vue.component(AlertError.name, AlertError)
+
 export default {
   data () {
     return {
@@ -144,10 +161,19 @@ export default {
             phone: null,
             mobileCountry: null
       }),
-      editmode: false
+      editmode: false,
+      countries: []
     }
   },
   methods:{
+    //fetch coutries
+    getCountries(){
+     axios.get('/countries')
+     .then((response)=>{
+       this.coutries = response.data;
+       console.log(response);
+     })
+    },
    //Edit existing Beneficiary
    editBeneficiary(){
 
@@ -158,12 +184,25 @@ export default {
    },
    //Create a new Beneficiary
    createBeneficiary(){
-     alert('created');
-      this.form.post('/createbeneficiary',)
-        .then(({ data })=> {
-           console.log(data) 
+     //alert('created');
+     //('#receivingmethodsmodal').modal('show');
+ 
+           this.form.post('/addbeneficiary',this.form)
+        .then(( )=> {
+             this.$swal(
+               'Success!',
+               'Beneficiary created Successfully',
+               'success'
+              );
+              $('#beneficiarymodal').modal('hide');
+              $('#methodsmodal').modal('show');
          })
+    
+
     }
+   },
+   mounted(){
+     this.getCountries();
    }
     
 }

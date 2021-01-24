@@ -3,7 +3,7 @@
         <div class="sidebar-nav row bg-white bg-color-light hide-x-overflow overflow-scroll navbar-collapse slimscrollsidebar">
             <ul class="nav bg-color-white text-color-dark" id="side-menu">
                 <li class="bg-color-whitedark" >
-                    <a href="/sendfooddashboard" class="waves-effect"><i class="fa fa-home   text-color-bluelight fa-2x mr-1" aria-hidden="true"></i><span class="hide-menu text-color-black">Dashboard</span></a>
+                    <a href="/sendfooddashboard" class="waves-effect"><i class="fa fa-home  text-color-bluelight fa-2x mr-1" aria-hidden="true"></i><span class="hide-menu text-color-black">Dashboard</span></a>
                 </li>
                 <li> 
                     <a href="profile.html" class="waves-effect">

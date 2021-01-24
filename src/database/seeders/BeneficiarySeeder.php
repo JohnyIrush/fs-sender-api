@@ -20,7 +20,7 @@ class BeneficiarySeeder extends Seeder
         DB::table('beneficiaries')->truncate();
 
         DB::table('beneficiaries')->insert([
-            'users_id' => 1,
+            'user_id' => 1,
             'name' => 'Johny',
             'address' => 'Nai',
             'city' => 'Nai',
@@ -38,7 +38,7 @@ class BeneficiarySeeder extends Seeder
         ]);
 
         DB::table('beneficiaries')->insert([
-            'users_id' => 1,
+            'user_id' => 1,
             'name' => 'Dev',
             'address' => 'Nai',
             'city' => 'Nai',
@@ -56,7 +56,7 @@ class BeneficiarySeeder extends Seeder
         ]);
 
         DB::table('beneficiaries')->insert([
-            'users_id' => 1,
+            'user_id' => 1,
             'name' => 'Jani',
             'address' => 'Nai',
             'city' => 'Nai',
@@ -74,7 +74,7 @@ class BeneficiarySeeder extends Seeder
         ]);
 
         DB::table('beneficiaries')->insert([
-            'users_id' => 1,
+            'user_id' => 1,
             'name' => 'Oscars',
             'address' => 'West',
             'city' => 'Nai',

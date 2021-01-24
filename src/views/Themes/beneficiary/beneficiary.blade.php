@@ -59,5 +59,6 @@
     </div>
    </div>
  @include('sendfood::Themes.beneficiary.partials.beneficiarymodal')
+ @include('sendfood::Themes.beneficiary.partials.receivingmethodsmodal')
  @include('sendfood::Themes.partials.footer')
 @endsection

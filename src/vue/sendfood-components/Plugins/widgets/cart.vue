@@ -205,39 +205,53 @@ export default {
   methods:{
     /** Reduce Product By One **/
       reduceByOne(id,productcategory){
-          alert(id + ' ' + productcategory);
+          //alert(id + ' ' + productcategory);
           const category = {
               category: productcategory
           }
         axios.post('/reducecartproduct/' + id,category )
         .then((res)=>{
-           alert('Reduced');
+            this.$swal({
+              position: 'top-end',
+              icon: 'success',
+              title: 'Product Reduced successfully',
+              showConfirmButton: false,
+              timer: 1000
+            })
         })
       },
     /** add Product By One **/
       addByOne(id,productcategory){
-          alert(id + ' ' + productcategory);
+          //alert(id + ' ' + productcategory);
           const category = {
               category: productcategory
           }
            axios.post('addtocart' + '/' + id,category)
            .then((response)=>{
-              alert('Added');
+            this.$swal({
+              position: 'top-end',
+              icon: 'success',
+              title: 'Product Added successfully',
+              showConfirmButton: false,
+              timer: 1000
+            })
            })
       },
     /** Remove cart Product **/
       removeCartProduct(id,productcategory){
-          alert(id + ' ' + productcategory);
+          //alert(id + ' ' + productcategory);
           const category = {
               category: productcategory
           }
         axios.post('removecartproduct/' + id,category)
-        .then((res)=>{
-         this.cartProducts = response.data;
-              //this.feedbackMessages.successMsg('Product removed successfully');
-            /*  setTimeout(() => {
-                window.location.reload();
-              }, 3000); */
+        .then(()=>{
+            this.$swal({
+              position: 'top-end',
+              icon: 'success',
+              title: 'Product Removed successfully',
+              showConfirmButton: false,
+              timer: 1000
+            })
         })
       },
     /** Fetch Cart Products **/

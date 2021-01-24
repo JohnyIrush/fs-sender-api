@@ -15,13 +15,18 @@ export default {
     },
     methods:{
        shopOrCheckout() {
-          alert(this.id + ' ' + this.productcategory);
+          //alert(this.id + ' ' + this.productcategory);
           const category = {
               category: this.productcategory
           }
            axios.post('addtocart' + '/' + this.id, category)
            .then((response)=>{
-                alert('Added');
+                //$('#shop-check').modal('show');
+             this.$swal(
+               'Success!',
+               'Product has been added to cart.',
+               'success'
+              );
            })
       }
     }
