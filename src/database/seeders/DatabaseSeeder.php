@@ -28,7 +28,11 @@ class DatabaseSeeder extends Seeder
             CountriesTableSeeder::class,
             BankListSeeder::class,
             CitiesTableSeeder::class,
-            StatesTableSeeder::class
+            StatesTableSeeder::class,
+            AgentListSeeder::class,
+            AgentLocationSeeder::class,
+            ConfigurationsTableSeeder::class,
+            MobileWalletTemplatesTableSeeder::class
             ]);
     }
 }

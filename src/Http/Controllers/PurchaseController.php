@@ -25,12 +25,18 @@ class PurchaseController extends Controller
      */
     public function cart()
     {
-        $oldCart = Session::get('cart');
-        $cart = new Cart($oldCart);
-        //dd($cart);
-        return view('sendfood::Plugins.Purchase.cart')->with([
-            'cart'=>$cart
-        ]);
+        if (!Session::get('cart')->totalQty==0) {
+            //dd(Session::get('cart')->totalQty==0);
+            $oldCart = Session::get('cart');
+            $cart = new Cart($oldCart);
+            //dd($cart);
+            return view('sendfood::Plugins.Purchase.cart')->with([
+                'cart'=>$cart
+            ]);
+        }else{
+            return redirect()->back()->with(['warning'=>'Your Cart is Empty Please Add Some Products To Proceed!']);
+        }
+
     }
 
     /** hamper adding to cart **/

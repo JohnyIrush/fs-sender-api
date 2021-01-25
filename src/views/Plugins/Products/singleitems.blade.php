@@ -14,6 +14,7 @@
                         </div>
 
                         @include('sendfood::Themes.partials.cartbarner')
+                        @include('sendfood::Themes.partials.messages')
           
                         <div class="col-md-12 white-box text-center card">
                           @foreach($items->chunk(3) as $item)

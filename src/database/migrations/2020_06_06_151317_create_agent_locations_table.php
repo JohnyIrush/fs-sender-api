@@ -16,7 +16,7 @@ class CreateAgentLocationsTable extends Migration
         Schema::create('agent_locations', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('agent_list_id')->unsigned();
-            $table->string('name');
+            $table->string('NewLands');
             $table->string('code');
             $table->tinyInteger('status')->default(1);
             $table->bigInteger('created_by')->nullable()->unsigned();

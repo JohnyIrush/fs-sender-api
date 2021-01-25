@@ -14,13 +14,13 @@
       <div class="modal-body txt-color-darkblue">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
 
-            <li class="nav-item">
+            <!--<li class="nav-item">
                 <a class="nav-link active" id="bank-tab" data-toggle="tab" href="#bank" role="tab" aria-controls="bank" aria-selected="true">Bank details</a>
-            </li>
+            </li> -->
         
             
             <li class="nav-item">
-                <a class="nav-link" id="agent-tab" data-toggle="tab" href="#agent" role="tab"
+                <a class="nav-link active" id="agent-tab" data-toggle="tab" href="#agent" role="tab"
                     aria-controls="agent">Agent details</a>
             </li>
 
@@ -41,6 +41,7 @@
             </li>
         </ul>
         <div class="tab-content" id="myTabContent">
+            <!--
                 <div class="tab-pane active" id="bank" role="tabpanel" aria-labelledby="bank-tab">
                     <div class="form-group mt-3">
                         <input type="hidden" name="" value="">
@@ -66,7 +67,7 @@
                       </ul>
 
                     </div>
-                    <!--
+            
                     <div class="form-group">
                         <label for="beneficiaryBranchName">Branch Name</label>
                         <input type="text" id="beneficiaryBranchName" name=""
@@ -77,30 +78,26 @@
                         <input id="beneficiaryAccount" type="text" name=""
                             class="form-control" data-required="true" value="">
                     </div>
-                    -->
-                </div>
+   
+                </div> -->
         
-            <div class="tab-pane  " id="agent" role="tabpanel"
+            <div class="tab-pane active " id="agent" role="tabpanel"
                 aria-labelledby="agent-tab">
                 <div class="form-group mt-3">
-                    <label for="agentEmail">Agent</label>
-        
-                    <select v-model="form.agent" class="form-control" id="agentEmail" name="" data-required="true" :class="{ 'is-invalid': form.errors.has('agent') }">
-                        <option  value="1">John Irungu</option>
-                            <option value="2" >Mary</option>
-                            <option value="3" >Jenifer</option>
+                    <label for="agentEmail">Agent Name</label>
+                    <select @change="setDefaultFields()" v-model="form.agent" class="form-control" id="agentEmail" name="" data-required="true" :class="{ 'is-invalid': form.errors.has('agent') }">
+                            <option v-for="(agent, index) in agentlist" :key="index" :value="agent.id"> {{agent.name}} </option>
                              <has-error :form="form" field="agent"></has-error>
                     </select>
                 </div>
                 <div class="form-group mt-3">
                     <label for="LocationOfAgent">Agent Location</label>
-                    <select class="form-control" id="LocationOfAgent" name="">
-                    </select>
+                    <input id="agentlocation" type="text" name="mobile" class="form-control" :value="agentlocation"  readonly>
                 </div>
         
                 <div class="form-group">
-                    <label for="agentMobile">Agent mobile number</label>
-                    <input id="agentMobile" type="text" name="beneficiary_receive_method[agent][mobile]" class="form-control" value="" readonly>
+                    <label for="agentMobile">Agent Mobile Number</label>
+                    <input id="agentmobile" type="text" name="mobile" class="form-control" :value="agentmobile"  readonly>
                 </div>
                     <div class="form-group mt-3">
                       <ul class="list-inline text-right">
@@ -214,11 +211,11 @@
 
 <script>
 
-//import Vue from 'vue'
-//import { Form, HasError, AlertError } from 'vform'
+import Vue from 'vue'
+import { Form, HasError, AlertError } from 'vform'
 
-//Vue.component(HasError.name, HasError)
-//Vue.component(AlertError.name, AlertError)
+Vue.component(HasError.name, HasError)
+Vue.component(AlertError.name, AlertError)
 
 export default {
     data(){
@@ -230,10 +227,39 @@ export default {
                zipwallet: null,
                mobile: null,
             }),
-            banklists: []
+            banklists: [],
+            agentlist: [],
+            agentlocation: [],
+            agentmobile: []
         }
     },
     methods: {
+        setDefaultFields(){
+         this.getAgentMobile();
+         this.getAgentLocation();
+        },
+        getAgentMobile(){
+           axios.get('/agentmobile/' + this.form.agent)
+           .then((response)=>{
+               this.agentmobile = response.data.mobile_number;
+               document.getElementById('agentmobile').value = response.data.mobile_number;
+           });
+        },
+        //get agent location
+        getAgentLocation(){
+           axios.get('/agentlocation/' + this.form.agent)
+           .then((response)=>{
+               this.agentlocation = response.data.name;
+               document.getElementById('agentlocation').value = response.data.name;
+           });
+        },
+        //get agent list
+        getAgentList(){
+           axios.get('/agentlist')
+           .then((response)=>{
+               this.agentlist = response.data;
+           });
+        },
       createForm(){
          $('#methodsmodal').modal('hide');
          $('#your-modal-id').modal('hide');
@@ -249,7 +275,9 @@ export default {
         }
     },
     mounted(){
-        this.getbankList();
+        //this.getbankList();
+        this.getAgentList();
+
     }
 }
 </script>

@@ -11,6 +11,8 @@ use Cchivhima\Sendfood\Models\AgentList;
 use Cchivhima\Sendfood\Models\BeneficiarieReceivingMethod;
 
 use Illuminate\Support\Facades\Auth;
+
+use Cchivhima\Sendfood\Models\AgentLocation;
  
 class ReceivingMethodsController extends Controller
 {
@@ -30,6 +32,24 @@ class ReceivingMethodsController extends Controller
     {
         $agent_lists =  AgentList::all();
         return response()->json($agent_lists,200);
+    }
+
+    /**
+     * fetch agent locations
+     */
+    public function agentLocation($id)
+    {
+        $agentlocation =  AgentList::find($id)->agentlocation;
+        return response()->json($agentlocation,200);
+    }
+
+    /**
+     * fetch agent locations
+     */
+    public function agentMobile($id)
+    {
+        $agentmobile =  AgentList::find($id);
+        return response()->json($agentmobile,200);
     }
 
     //create beneficiary receiving methods

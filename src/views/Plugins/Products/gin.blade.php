@@ -18,6 +18,7 @@
                         </div>
                         <!--row -->
                         @include('sendfood::Themes.partials.cartbarner')
+                        @include('sendfood::Themes.partials.messages')
                         <div class="col-md-12 white-box text-center card">
                             <div class="row white-box text-center">
                                 @if(sizeof($gin)>0)

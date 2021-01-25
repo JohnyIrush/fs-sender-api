@@ -171,6 +171,10 @@ li:hover{
     color: rgb(92, 160, 25) ! important;
 }
 
+.bg-color-greenlight {
+    color: rgb(92, 160, 25) ! important;
+}
+
 .text-color-yellowlight {
     color: rgb(236, 162, 25) !important;
 }
@@ -199,6 +203,10 @@ li:hover{
 }
 
 .text-color-red {
+    color: red !important;
+}
+
+.bg-color-red {
     color: red !important;
 }
 

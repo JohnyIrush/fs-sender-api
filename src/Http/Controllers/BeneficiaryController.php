@@ -14,6 +14,8 @@ use Cchivhima\Sendfood\Models\City;
 
 use Illuminate\Support\Facades\Auth;
 
+use Session;
+
 class BeneficiaryController extends Controller
 {
     /**
@@ -22,12 +24,17 @@ class BeneficiaryController extends Controller
      */
     public function beneficiary()
     {
+      if (!Session::get('cart')->totalQty==0) {
+        $beneficiaries = Beneficiary::all();
+        return view('sendfood::Themes.beneficiary.beneficiary')
+        ->with([
+         'beneficiaries' => $beneficiaries
+        ]);
+       }else{
+           return redirect()->back()->with(['warning'=>'Your Cart is Empty Please Add Some Products To Proceed!']);
+       }
 
-      $beneficiaries = Beneficiary::all();
-      return view('sendfood::Themes.beneficiary.beneficiary')
-      ->with([
-       'beneficiaries' => $beneficiaries
-      ]);
+
     }
 
     //Create a new Beneficiary
@@ -46,8 +53,9 @@ class BeneficiaryController extends Controller
       //$beneficiary->branch_name = $request->branch_name;
       //$beneficiary->account_number = $request->account_number;
       $beneficiary->email = $request->email;
-      $beneficiary->phone = $request->phone;
+      $beneficiary->phone = ($request->phonecode + $request->phone);
       $beneficiary->created_by = 1;
+      $beneficiary->active = 1;
       $beneficiary->updated_by = 1;
       $beneficiary->save();
 
@@ -71,7 +79,12 @@ class BeneficiaryController extends Controller
 
     public function city()
     {
-      $cities = City::all();
+    $cities = City::all()->take(1000);
+     // City::chunk(100, function ($cities) {
+     //   foreach ($cities as $citys) {
+     //       return response()->json($cities,200);
+     //   }
+     //});
       return response()->json($cities,200);
     }
 

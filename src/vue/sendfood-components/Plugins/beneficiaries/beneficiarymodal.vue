@@ -87,11 +87,11 @@
           <div class="row">
             <ul class="list-inline text-left">
               <li>
-                <select v-model="form.mobileCountry" name="mobileCountry" class="form-control form-control-sm" :class="{ 'is-invalid': form.errors.has('mobileCountry') }">
+                <select v-model="form.phonecode" name="phonecode" class="form-control form-control-sm" :class="{ 'is-invalid': form.errors.has('phonecode') }">
                   <option>Small select</option>
                   <option v-for="(phonecode, index) in phonecodes" :key="index" :value="phonecode.phonecode" >+ {{phonecode.phonecode}} </option>
                 </select>
-                <has-error :form="form" field="mobileCountry"></has-error>
+                <has-error :form="form" field="phonecode"></has-error>
               </li>
               <li>
                 <input v-model="form.phone" type="tel" autocomplete="tel" required="" inputmode="tel" id="phone" name="phone" class="form-control"  placeholder="mobile number" :class="{ 'is-invalid': form.errors.has('phone') }">
@@ -149,7 +149,7 @@ export default {
             account_number: null,
             email: null,
             phone: null,
-            mobileCountry: null
+            phonecode: null
       }),
       editmode: false,
       countries: [],
@@ -161,10 +161,13 @@ export default {
   methods:{
     //fetch PhoneCodes
     getPhoneCodes(){
-     axios.get('/phonecodes')
+     axios.get('/countries')
      .then((response)=>{
        this.phonecodes = response.data;
        //console.log(response);
+     })
+     .catch(()=>{
+       alert('error Loading phone codes');
      })
     },
     //fetch Cities
@@ -174,13 +177,18 @@ export default {
        this.cities = response.data;
        //console.log(response);
      })
+     .catch(()=>{
+       alert('error Loading phone cities');
+     })
     },
     //fetch states
     getStates(){
      axios.get('/states')
      .then((response)=>{
        this.states = response.data;
-       //console.log(response);
+     })
+     .catch(()=>{
+       alert('error Loading phone states');
      })
     },
     //fetch coutries
@@ -188,8 +196,11 @@ export default {
      axios.get('/countries')
      .then((response)=>{
        this.countries = response.data;
-       this.phonecodes = response.data;
-       console.log(response);
+       //this.phonecodes = response.data;
+       //console.log(response);
+     })
+      .catch(()=>{
+       alert('error Loading phone countries');
      })
     },
    //Edit existing Beneficiary
@@ -228,12 +239,16 @@ export default {
        }, 5000);
 
        setTimeout(() => {
-        this.getCities();
-       }, 5000);
+       this.getCities();
+       }, 10000);
 
        setTimeout(() => {
+        this.getPhoneCodes();
+       }, 15000);
+      
+       setTimeout(() => {
         this.getStates();
-       }, 5000);
+       }, 20000);
 
 
 
