@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Auth;
 
 use Session;
 
+use DB;
+
+use Cchivhima\Sendfood\Http\Drivers\Memory;
+
 class BeneficiaryController extends Controller
 {
     /**
@@ -59,6 +63,24 @@ class BeneficiaryController extends Controller
       $beneficiary->updated_by = 1;
       $beneficiary->save();
 
+      //dd();
+      Session::put('beneficiaryid',DB::table('beneficiaries')->orderBy('id', 'DESC')->first()->id);
+
+    }
+
+    //select beneficiary
+    public function selectBeneficiary(Request $request){
+      //dd($request);
+      $memory = new Memory();
+      $memory->beneficiary($request->beneficiaryid);
+      dd(Session::get('beneficiaryid'));
+    }
+
+    //fetch beneficiaries
+
+    public function fetchBeneficiary(){
+      $beneficiaries = Beneficiary::all();
+      return response()->json($beneficiaries, 200);
     }
 
         /**

@@ -11,38 +11,38 @@
         </button>
        <div class="modal-title" id="add-benef-modal"> <h3 class="txt-color-darkblue">Receiving Methods</h3></div>
       </div>
+      <form @submit.prevent="!editmode? createReceivingMethod() : updateReceivingMethod()">
       <div class="modal-body txt-color-darkblue">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
-
-            <!--<li class="nav-item">
+        
+            <li v-if="banklists.length>0" class="nav-item">
                 <a class="nav-link active" id="bank-tab" data-toggle="tab" href="#bank" role="tab" aria-controls="bank" aria-selected="true">Bank details</a>
-            </li> -->
+            </li> 
         
             
-            <li class="nav-item">
+            <li v-if="agentlist.length>0" class="nav-item">
                 <a class="nav-link active" id="agent-tab" data-toggle="tab" href="#agent" role="tab"
                     aria-controls="agent">Agent details</a>
             </li>
 
-            <li class="nav-item">
+            <li v-if="mobilewallettemplates.length>0" class="nav-item">
                 <a class="nav-link" id="mobile-tab" data-toggle="tab" href="#mobile" role="tab"
                     aria-controls="mobile">Mobile money</a>
             </li>
 
             <!--Problems-->
         
-            <li class="nav-item">
+            <li v-if="cashpickuptemplates.length>0" class="nav-item">
                 <a class="nav-link" id="cash-tab" data-toggle="tab" href="#cash" role="tab" aria-controls="cash">Cash Pickup</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" id="zip-tab" data-toggle="tab" href="#zip" role="tab"
-                    aria-controls="zip">ZipWallet</a>
+                <a class="nav-link" id="zip-tab" data-toggle="tab" href="#zipt" role="tab"
+                    aria-controls="zipt">ZipWallet</a>
             </li>
         </ul>
-        <div class="tab-content" id="myTabContent">
-            <!--
-                <div class="tab-pane active" id="bank" role="tabpanel" aria-labelledby="bank-tab">
+        <div  class="tab-content" id="myTabContent">
+                <div v-if="banklists.length>0" class="tab-pane active" id="bank" role="tabpanel" aria-labelledby="bank-tab">
                     <div class="form-group mt-3">
                         <input type="hidden" name="" value="">
                         <label for="beneficiaryBankName">Bank Name</label>
@@ -57,16 +57,6 @@
                         </select>
 
                     </div>
-                    <div class="form-group mt-3">
-                      <ul class="list-inline text-right">
-                       <li></li>
-                       <li class="nav-item">
-                           <a class="nav-link btn btn-lg ml-5 bg-color-yellowlight text-white text-center" id="agent-tab" data-toggle="tab" href="#agent" role="tab"
-                               aria-controls="agent">Next</a>
-                       </li>
-                      </ul>
-
-                    </div>
             
                     <div class="form-group">
                         <label for="beneficiaryBranchName">Branch Name</label>
@@ -79,9 +69,9 @@
                             class="form-control" data-required="true" value="">
                     </div>
    
-                </div> -->
+                </div>
         
-            <div class="tab-pane active " id="agent" role="tabpanel"
+            <div v-if="agentlist.length>0" class="tab-pane active " id="agent" role="tabpanel"
                 aria-labelledby="agent-tab">
                 <div class="form-group mt-3">
                     <label for="agentEmail">Agent Name</label>
@@ -111,13 +101,13 @@
                     </div>
             </div>
         
-            <div class="tab-pane  " id="mobile" role="tabpanel"
+            <div v-if="mobilewallettemplates.length>0" class="tab-pane  " id="mobile" role="tabpanel"
                 aria-labelledby="mobile-tab">
                 <div class="form-group">
                     <label for="mobileMoneyOperator">Mobile Operator</label>
         
                     <select v-model="form.mobile_operator_id" class="form-control" id="mobileMoneyOperator" name="beneficiary_receive_method[mobile][operator]" data-required="true" :class="{ 'is-invalid': form.errors.has('mobile_operator_id') }">
-                        <option value="">Select Operator</option>
+                        <option value="1">Select Operator</option>
                     </select>
                     <has-error :form="form" field="mobile_operator_id"></has-error>
                 </div>
@@ -125,7 +115,7 @@
                 <div class="form-group  mt-3">
                     <input type="hidden" name="" value="">
                     <label for="beneficiaryMobileAccount">Mobile Number</label>
-                    <input  id="beneficiaryMobileAccount" type="text" name="beneficiary_receive_method[mobile][account_number]" class="form-control beneficiaryPhone phone" data-required="true" value="" maxlength="10">
+                    <input v-model="form.mobile"  id="beneficiaryMobileAccount" type="text" name="mobile" class="form-control beneficiaryPhone phone" data-required="true" value="" maxlength="10">
                     <has-error :form="form" field="mobile"></has-error>
                 </div>
                     <div class="form-group mt-3">
@@ -144,7 +134,7 @@
             <!--Problems-->
         
         
-            <div class="tab-pane  " id="cash" role="tabpanel" aria-labelledby="cash-tab">
+            <div v-if="cashpickuptemplates.length>0" class="tab-pane  " id="cash" role="tabpanel" aria-labelledby="cash-tab">
                 <div class="form-group mt-3">
                     <label for="cashPickupMobileOperator">Mobile Operator</label>
                     <select class="form-control" id="cashPickupMobileOperator"
@@ -162,32 +152,32 @@
             </div>
         
         
-            <div class="tab-pane  " id="zip" role="tabpanel" aria-labelledby="zip-tab">
+            <div class="tab-pane  " id="zipt" role="tabpanel" aria-labelledby="zip-tab">
                 <div class="form-group mt-3">
                     <label for="wallet">Wallet</label>
                     <input type="hidden" name="" value="">
-                    <select class="form-control" id="wallet" name="">
+                    <select v-model="form.zipwallet" class="form-control" id="wallet" name="zipwallet">
                         <option>Select</option>
-                        <option value="zipcash" >ZipCash</option>
+                        <option value="1" >ZipCash</option>
                         <option value="cad" >CAD</option>
                         <option value="usd" >USD</option>
                         <option value="gbp" >GBP</option>
                         <option value="eur" >EUR</option>
                         <option value="zar" >ZAR</option>
                     </select>
-                    
                 </div>
                 <div class="form-group mt-3">
                     <label for="wallet">Wallet Number</label>
                     <input id="beneficiaryZipAccount" type="text"
                         name="beneficiary_receive_method[zipwallet][account_number]" class="form-control" data-required="true"
-                        value="">
+                        value="1">
                 </div>
                  <div class="form-group mt-3">
                    
                  </div>
                 
             </div>
+
         </div>
       </div>
       <div class="modal-footer">
@@ -195,14 +185,12 @@
           <ul class="list-inline text-right">
            <li></li>
            <li class="nav-item">
-
-            <button @click="createForm()" type="button" class="btn btn-lg ml-5 bg-color-yellowlight text-white text-center" >Confirm</button>
+            <button  type="submit" class="btn btn-lg ml-5 bg-color-yellowlight text-white text-center" >Confirm</button>
            </li>
           </ul>
-
         </div>
       </div>
-
+      </form>
       </div>
     </div>
   </div>
@@ -221,19 +209,60 @@ export default {
     data(){
         return{
             form: new Form({
-               bank: null,
+               //bank: null,
                agent: null,
-               mobile_operator_id: null,
-               zipwallet: null,
+               mobile_operator_id: 1,
+               zipwallet: 1,
                mobile: null,
             }),
             banklists: [],
             agentlist: [],
             agentlocation: [],
-            agentmobile: []
+            agentmobile: [],
+            mobilewallettemplates: [],
+            cashpickuptemplates: [],
+            editmode: false
         }
     },
     methods: {
+        createReceivingMethod(){
+
+            this.form.post('createreceivingmethod', this.form)
+            .then(()=>{
+
+             this.$swal(
+               'Success!',
+               'Beneficiary created Successfully',
+               'success'
+              );
+
+             $('#methodsmodal').modal('hide');
+             $('#your-modal-id').modal('hide');
+             $('body').removeClass('modal-open');
+             $('.modal-backdrop').remove();
+
+             this.$swal(
+               'Success!',
+               'Beneficiary created Successfully',
+               'success'
+              );
+            })
+        },
+        //fetch cashpickuptemplates
+       getCashPickUpTemplates(){
+           axios.get('cashpickuptemplates')
+           .then((response)=>{
+              this.cashpickuptemplates = response.data;
+           });
+       },
+        //fetch mobile wallets
+       getMobileWalletTemplates(){
+           axios.get('mobilewallettemplates')
+           .then((response)=>{
+              this.mobilewallettemplates = response.data;
+           });
+       },
+        //set default fields for agents
         setDefaultFields(){
          this.getAgentMobile();
          this.getAgentLocation();
@@ -260,12 +289,6 @@ export default {
                this.agentlist = response.data;
            });
         },
-      createForm(){
-         $('#methodsmodal').modal('hide');
-         $('#your-modal-id').modal('hide');
-        $('body').removeClass('modal-open');
-        $('.modal-backdrop').remove();
-      },
         getbankList(){
           axios.get('/getbanklist')
           .then((response)=>{
@@ -277,7 +300,8 @@ export default {
     mounted(){
         //this.getbankList();
         this.getAgentList();
-
+        this.getMobileWalletTemplates();
+        this.getCashPickUpTemplates();
     }
 }
 </script>

@@ -13,6 +13,16 @@ use Cchivhima\Sendfood\Models\BeneficiarieReceivingMethod;
 use Illuminate\Support\Facades\Auth;
 
 use Cchivhima\Sendfood\Models\AgentLocation;
+
+use Cchivhima\Sendfood\Models\MobileWalletTemplate;
+
+use Cchivhima\Sendfood\Models\CashPickupTemplate;
+
+use Cchivhima\Sendfood\Models\ZipWallet;
+
+use Cchivhima\Sendfood\Http\Drivers\Memory;
+
+use DB;
  
 class ReceivingMethodsController extends Controller
 {
@@ -52,10 +62,41 @@ class ReceivingMethodsController extends Controller
         return response()->json($agentmobile,200);
     }
 
+    /**
+     * fetch mobile wallet templates
+     */
+    public function mobileWalletTemplate()
+    {
+        $mobilewallets =  MobileWalletTemplate::all();
+        return response()->json($mobilewallets,200);
+    }
+
+    /**
+     * fetch cashpickup templates
+     */
+    public function cashPickUpTemplates()
+    {
+        $cashpickuptemplates =  CashPickupTemplate::all();
+        return response()->json($cashpickuptemplates,200);
+    }  
+
+    /**
+     * fetch cashpickup templates
+     */
+    public function zipWallet()
+    {
+        $zipwallets =  ZipWallet::all();
+        return response()->json($zipwallets,200);
+    }  
+
+
+    
+
     //create beneficiary receiving methods
 
-    public function beneficiaryReceivingMethod(Request $request)
+    public function createReceivingMethod(Request $request)
     {
+        //dd($request);
 
       $beneficiaryreceivingmethod = new BeneficiarieReceivingMethod();
       $beneficiaryreceivingmethod->beneficiary_id = 1; //Supposed to be from the session of the beneficiary created or selected
@@ -68,6 +109,8 @@ class ReceivingMethodsController extends Controller
       $beneficiaryreceivingmethod->updated_by = Auth::id();
       $beneficiaryreceivingmethod->save();
 
+      $memory = new Memory();
+      $memory->receivingMethod(DB::table('beneficiarie_receiving_methods')->orderBy('id', 'DESC')->first()->id);
     }
 
 

@@ -13,6 +13,7 @@ Vue.component('beneficiarymodal', require('./sendfood-components/Plugins/benefic
 Vue.component('receivingmethodsmodal', require('./sendfood-components/Plugins/beneficiaries/receivingmethodsmodal.vue').default); //receiving methods modal
 Vue.component('beneficiarymodallauncher', require('./sendfood-components/Plugins/beneficiaries/beneficiarymodallauncher.vue').default); //launch beneficiary modal
 Vue.component('cart-quantity', require('./sendfood-components/Plugins/widgets/cart-quantity.vue').default); //cart quantity
+Vue.component('exixtingbeneficiaries', require('./sendfood-components/Plugins/beneficiaries/exixtingbeneficiaries.vue').default); //cart quantity
 
 //Event bus
 var Event = new Vue();

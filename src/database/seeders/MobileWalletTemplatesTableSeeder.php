@@ -25,7 +25,7 @@ class MobileWalletTemplatesTableSeeder extends Seeder
         DB::table('mobile_wallet_templates')->insert(array (
             0 => 
             array (
-                'id' => 1,
+                // => 1,
                 'name' => 'ZEEPAY',
                 'country_code' => 'GHA',
                 'status' => 1,
@@ -36,7 +36,7 @@ class MobileWalletTemplatesTableSeeder extends Seeder
             ),
             1 => 
             array (
-                'id' => 2,
+                // => 2,
                 'name' => 'bKash',
                 'country_code' => 'BGD',
                 'status' => 1,
@@ -47,7 +47,7 @@ class MobileWalletTemplatesTableSeeder extends Seeder
             ),
             2 => 
             array (
-                'id' => 3,
+                // => 3,
                 'name' => 'ZEEPAY',
                 'country_code' => 'BEN',
                 'status' => 1,
@@ -58,7 +58,7 @@ class MobileWalletTemplatesTableSeeder extends Seeder
             ),
             3 => 
             array (
-                'id' => 4,
+                // => 4,
                 'name' => 'ZEEPAY',
                 'country_code' => 'TCD',
                 'status' => 1,
@@ -69,7 +69,7 @@ class MobileWalletTemplatesTableSeeder extends Seeder
             ),
             4 => 
             array (
-                'id' => 5,
+                // => 5,
                 'name' => 'ZEEPAY',
                 'country_code' => 'NGA',
                 'status' => 1,
@@ -80,7 +80,7 @@ class MobileWalletTemplatesTableSeeder extends Seeder
             ),
             5 => 
             array (
-                'id' => 6,
+                // => 6,
                 'name' => 'ZEEPAY',
                 'country_code' => 'CMR',
                 'status' => 1,
@@ -91,7 +91,7 @@ class MobileWalletTemplatesTableSeeder extends Seeder
             ),
             6 => 
             array (
-                'id' => 7,
+                // => 7,
                 'name' => 'ZEEPAY',
                 'country_code' => 'BWA',
                 'status' => 1,
@@ -102,7 +102,7 @@ class MobileWalletTemplatesTableSeeder extends Seeder
             ),
             7 => 
             array (
-                'id' => 8,
+                // => 8,
                 'name' => 'ZEEPAY',
                 'country_code' => 'BFA',
                 'status' => 1,
@@ -113,7 +113,7 @@ class MobileWalletTemplatesTableSeeder extends Seeder
             ),
             8 => 
             array (
-                'id' => 9,
+                // => 9,
                 'name' => 'ZEEPAY',
                 'country_code' => 'KEN',
                 'status' => 1,
@@ -124,7 +124,7 @@ class MobileWalletTemplatesTableSeeder extends Seeder
             ),
             9 => 
             array (
-                'id' => 10,
+                // => 10,
                 'name' => 'ZEEPAY',
                 'country_code' => 'ZWE',
                 'status' => 1,
@@ -135,7 +135,7 @@ class MobileWalletTemplatesTableSeeder extends Seeder
             ),
             10 => 
             array (
-                'id' => 11,
+                // => 11,
                 'name' => 'ZEEPAY',
                 'country_code' => 'ZMB',
                 'status' => 1,
@@ -146,7 +146,7 @@ class MobileWalletTemplatesTableSeeder extends Seeder
             ),
             11 => 
             array (
-                'id' => 12,
+                // => 12,
                 'name' => 'ZEEPAY',
                 'country_code' => 'UGA',
                 'status' => 1,
@@ -157,7 +157,7 @@ class MobileWalletTemplatesTableSeeder extends Seeder
             ),
             12 => 
             array (
-                'id' => 13,
+                // => 13,
                 'name' => 'ZEEPAY',
                 'country_code' => 'TGO',
                 'status' => 1,
@@ -168,7 +168,7 @@ class MobileWalletTemplatesTableSeeder extends Seeder
             ),
             13 => 
             array (
-                'id' => 14,
+                // => 14,
                 'name' => 'ZEEPAY',
                 'country_code' => 'TZA',
                 'status' => 1,
@@ -179,7 +179,7 @@ class MobileWalletTemplatesTableSeeder extends Seeder
             ),
             14 => 
             array (
-                'id' => 15,
+                // => 15,
                 'name' => 'ZEEPAY',
                 'country_code' => 'SEN',
                 'status' => 1,
@@ -190,7 +190,7 @@ class MobileWalletTemplatesTableSeeder extends Seeder
             ),
             15 => 
             array (
-                'id' => 16,
+                // => 16,
                 'name' => 'ZEEPAY',
                 'country_code' => 'RWA',
                 'status' => 1,
@@ -201,7 +201,7 @@ class MobileWalletTemplatesTableSeeder extends Seeder
             ),
             16 => 
             array (
-                'id' => 17,
+                // => 17,
                 'name' => 'ZEEPAY',
                 'country_code' => 'NER',
                 'status' => 1,
@@ -212,7 +212,7 @@ class MobileWalletTemplatesTableSeeder extends Seeder
             ),
             17 => 
             array (
-                'id' => 18,
+                // => 18,
                 'name' => 'ZEEPAY',
                 'country_code' => 'MLI',
                 'status' => 1,
@@ -223,7 +223,7 @@ class MobileWalletTemplatesTableSeeder extends Seeder
             ),
             18 => 
             array (
-                'id' => 19,
+                // => 19,
                 'name' => 'ZEEPAY',
                 'country_code' => 'MWI',
                 'status' => 1,
@@ -234,7 +234,7 @@ class MobileWalletTemplatesTableSeeder extends Seeder
             ),
             19 => 
             array (
-                'id' => 20,
+                // => 20,
                 'name' => 'ZEEPAY',
                 'country_code' => 'GIN',
                 'status' => 1,
@@ -245,7 +245,7 @@ class MobileWalletTemplatesTableSeeder extends Seeder
             ),
             20 => 
             array (
-                'id' => 21,
+                // => 21,
                 'name' => 'ZEEPAY',
                 'country_code' => 'GNB',
                 'status' => 1,
@@ -256,7 +256,7 @@ class MobileWalletTemplatesTableSeeder extends Seeder
             ),
             21 => 
             array (
-                'id' => 22,
+                // => 22,
                 'name' => 'ZEEPAY',
                 'country_code' => 'GAB',
                 'status' => 1,
@@ -267,7 +267,7 @@ class MobileWalletTemplatesTableSeeder extends Seeder
             ),
             22 => 
             array (
-                'id' => 23,
+                // => 23,
                 'name' => 'ZEEPAY',
                 'country_code' => 'ETH',
                 'status' => 1,
@@ -278,7 +278,7 @@ class MobileWalletTemplatesTableSeeder extends Seeder
             ),
             23 => 
             array (
-                'id' => 24,
+                // => 24,
                 'name' => 'ZEEPAY',
                 'country_code' => 'GNQ',
                 'status' => 1,
@@ -289,7 +289,7 @@ class MobileWalletTemplatesTableSeeder extends Seeder
             ),
             24 => 
             array (
-                'id' => 25,
+                // => 25,
                 'name' => 'ZEEPAY',
                 'country_code' => 'CIV',
                 'status' => 1,
@@ -300,7 +300,7 @@ class MobileWalletTemplatesTableSeeder extends Seeder
             ),
             25 => 
             array (
-                'id' => 26,
+                // => 26,
                 'name' => 'ZEEPAY',
                 'country_code' => 'COG',
                 'status' => 1,
@@ -311,7 +311,7 @@ class MobileWalletTemplatesTableSeeder extends Seeder
             ),
             26 => 
             array (
-                'id' => 27,
+                // => 27,
                 'name' => 'ZEEPAY',
                 'country_code' => 'COD',
                 'status' => 1,
@@ -322,7 +322,7 @@ class MobileWalletTemplatesTableSeeder extends Seeder
             ),
             27 => 
             array (
-                'id' => 28,
+                // => 28,
                 'name' => 'ZEEPAY',
                 'country_code' => 'CAF',
                 'status' => 1,
@@ -333,7 +333,7 @@ class MobileWalletTemplatesTableSeeder extends Seeder
             ),
             28 => 
             array (
-                'id' => 29,
+                // => 29,
                 'name' => 'ZEEPAY',
                 'country_code' => 'BDI',
                 'status' => 1,

@@ -38,11 +38,14 @@ Route::group(['middleware' => ['web']], function () {
 /** Beneficiaries **/
 Route::group(['middleware' => ['web']], function () {
 Route::get('/beneficiary', [BeneficiaryController::class, 'beneficiary'])->name('beneficiary'); //render the sendfood beneficiary Ui
+Route::get('beneficiaries', [BeneficiaryController::class, 'fetchBeneficiary'])->name('beneficiaries'); //render the sendfood beneficiaries Ui
 Route::get('/countries', [BeneficiaryController::class, 'country'])->name('countries'); //fetch countries
 Route::post('/addbeneficiary', [BeneficiaryController::class, 'create'])->name('addbeneficiary'); //Create a new beneficiary
 Route::get('/states', [BeneficiaryController::class, 'state'])->name('states'); //fetch states
 Route::get('/cities', [BeneficiaryController::class, 'city'])->name('cities'); //fetch cities
 Route::get('/phonecodes', [BeneficiaryController::class, 'phoneCode'])->name('phonecodes'); //fetch phonecodes
+Route::get('/phonecodes', [BeneficiaryController::class, 'phoneCode'])->name('phonecodes'); //fetch phonecodes
+Route::post('selectedbeneficiary', [BeneficiaryController::class, 'selectBeneficiary'])->name('selectedbeneficiary'); //fetch selectedbeneficiary
 });
 /** Beneficiaries **/
 
@@ -52,6 +55,10 @@ Route::get('/agentlist', [ReceivingMethodsController::class, 'agentList'])->name
 Route::get('/agentlocation/{id}', [ReceivingMethodsController::class, 'agentLocation'])->name('agentlocation'); //fetch agent location
 Route::get('/agentmobile/{id}', [ReceivingMethodsController::class, 'agentMobile'])->name('agentmobile'); //fetch agent location
 Route::post('/createreceivingmethod', [ReceivingMethodsController::class, 'beneficiaryReceivingMethod'])->name('createreceivingmethod'); //create beneficiary receiving method
+Route::get('/mobilewallettemplates', [ReceivingMethodsController::class, 'mobileWalletTemplate'])->name('mobilewallettemplates'); //fetch mobile wallet templates
+Route::get('/cashpickuptemplates', [ReceivingMethodsController::class, 'cashPickUpTemplates'])->name('cashpickuptemplates'); //fetch cash pick templates
+Route::get('/zipwallets', [ReceivingMethodsController::class, 'zipWallet'])->name('zipwallets'); //fetch zip wallets
+Route::post('createreceivingmethod', [ReceivingMethodsController::class, 'createReceivingMethod'])->name('createreceivingmethod'); //create receiving Method
 /** Receiving Methods **/
 
 /** Payment  **/

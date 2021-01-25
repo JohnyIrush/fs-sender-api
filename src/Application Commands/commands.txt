@@ -6,7 +6,7 @@ php artisan db:seed
 php artisan make:model Country
 php artisan make:model hamperImage -m
 php artisan make:model BankList
-php artisan make:model ProductCategory -m
+php artisan make:model AgentLocation
 php artisan make:model Item -m
 php artisan make:model Drink -m
 php artisan make:seed BankListSeeder

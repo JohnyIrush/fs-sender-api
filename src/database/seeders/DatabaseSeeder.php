@@ -26,13 +26,14 @@ class DatabaseSeeder extends Seeder
             BeneficiarySeeder::class,
             UsersTableSeeder::class,
             CountriesTableSeeder::class,
-            BankListSeeder::class,
+            //BankListSeeder::class,
             CitiesTableSeeder::class,
             StatesTableSeeder::class,
             AgentListSeeder::class,
             AgentLocationSeeder::class,
             ConfigurationsTableSeeder::class,
-            MobileWalletTemplatesTableSeeder::class
+            MobileWalletTemplatesTableSeeder::class,
+            WalletGroupsTableSeeder::class
             ]);
     }
 }

@@ -18,16 +18,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
-                    <form>
-                        <div class="form-group">
-                          <label for="selectbeneficiary" class="text-center">Select Beneficiary</label>
-                          <select class="form-control" id="selectbeneficiary">
-                          @foreach($beneficiaries as $beneficiary)
-                            <option> {{$beneficiary->name}} </option>
-                          @endforeach
-                          </select>
-                        </div>
-                     </form>
+                  <exixtingbeneficiaries></exixtingbeneficiaries>
                 </div>
                 <div class="col-md-3"></div>
             </div>
