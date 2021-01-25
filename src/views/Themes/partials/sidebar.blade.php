@@ -46,7 +46,7 @@
                                  <i class="fas fa-glass-cheers force-margin-left text-color-bluelight mr-1 fa-1x "></i>
                                 <span class="hide-menu text-color-black">Drinks List</span>
                             </a>
-                            <ul class="nav dropdown-menu card text-color-darkblue flex-column">
+                            <ul class="nav dropdown-menu card bg-color-whitedark flex-column">
                                 <li class="nav-item dropdown-item">
                                   <a href="/beer" class="nav-link active">Beer</a>
                                 </li>
@@ -111,7 +111,10 @@
                 </li>
             </ul>
         </div>
-    
+        <div class="sidebarminimizer-pos" >
+            @include('sendfood::Themes.partials.sidebarminimizer')
+        </div>
+
     </div>
     <!--
         <div class="sidebarminimizer-pos col">

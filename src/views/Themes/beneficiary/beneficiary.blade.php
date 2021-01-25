@@ -54,7 +54,7 @@
         </div>
         <div class="col-md-4"></div>
         <div class="col-md-4">
-           <button class="btn bg-color-yellowlight text-color-white ">NEXT</button>
+           <a href="/reviewtransfer" class="btn bg-color-yellowlight text-color-white ">NEXT</a>
         </div>
     </div>
    </div>

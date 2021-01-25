@@ -199,7 +199,7 @@
            <li></li>
            <li class="nav-item">
 
-            <button type="button" class="btn btn-lg ml-5 bg-color-yellowlight text-white text-center" data-dismiss="modal">Confirm</button>
+            <button @click="createBeneficiaryReceivingMethod()" type="button" class="btn btn-lg ml-5 bg-color-yellowlight text-white text-center" >Confirm</button>
            </li>
           </ul>
 
@@ -235,7 +235,10 @@ export default {
     },
     methods: {
       createBeneficiaryReceivingMethod(){
-        // $('#receivingmethodsmodal').modal('hide');
+         $('#methodsmodal').modal('hide');
+         $('#your-modal-id').modal('hide');
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
       },
         getbankList(){
           axios.get('/getbanklist')

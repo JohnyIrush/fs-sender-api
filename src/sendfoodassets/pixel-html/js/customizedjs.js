@@ -7,3 +7,7 @@ const classRemover = () => {
 }
 
 classRemover();
+
+const collapseSideBar = () => {
+
+}

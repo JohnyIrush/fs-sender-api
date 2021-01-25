@@ -1,3 +1,11 @@
-<div class="text-color-darkblue sidebarminimizer-height">
- Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae, perspiciatis.
+<div class="bg-color-yellowlight sidebarminimizer-height">
+ <ul class="list-inline text-right">
+    <li>
+        
+    </li>
+    <li>
+        <button onclick="collapseSideBar()" class="bg-color-yellowlight btn-lg"> &lt;  </button>
+    </li>
+</ul>
+
 </div>

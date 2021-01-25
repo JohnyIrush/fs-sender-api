@@ -5,6 +5,7 @@ use Cchivhima\Sendfood\Http\Controllers\ProductsController; //Import Send Food P
 use Cchivhima\Sendfood\Http\Controllers\PurchaseController; //Import Send Food Products Purchase Controller -> this controller controls all aspects of Products purchase
 use Cchivhima\Sendfood\Http\Controllers\BeneficiaryController; //Import Send Food Beneficiaries Controller -> this controller controls all aspects of Beneficiaries
 use Cchivhima\Sendfood\Http\Controllers\ReceivingMethodsController; //Import Send Food payment methods Controller -> this controller controls all aspects of Payment Methods 
+use Cchivhima\Sendfood\Http\Controllers\PaymentController;
 /** Send food package UI **/
 Route::get('/sendfooddashboard', [SendFoodUiController::class, 'dashboard']); //render the sendfood dashboard
 /** Send food package UI **/
@@ -40,8 +41,13 @@ Route::get('/countries', [BeneficiaryController::class, 'country'])->name('count
 Route::post('/addbeneficiary', [BeneficiaryController::class, 'create'])->name('addbeneficiary'); //Create a new beneficiary
 /** Beneficiaries **/
 
-/** Payment Methods **/
+/** Receiving Methods **/
 Route::get('/getbanklist', [ReceivingMethodsController::class, 'bankList'])->name('getbanklist'); //fetch bank lists
 Route::get('/agentlist', [ReceivingMethodsController::class, 'agentList'])->name('agentlist'); //fetch agent lists
 Route::post('/createreceivingmethod', [ReceivingMethodsController::class, 'beneficiaryReceivingMethod'])->name('createreceivingmethod'); //create beneficiary receiving method
-/** Payment Methods **/
+/** Receiving Methods **/
+
+/** Payment  **/
+Route::get('/reviewtransfer', [PaymentController::class, 'reviewTransfer'])->name('reviewtransfer'); //fetch review transfer details
+Route::get('/revieworder', [PaymentController::class, 'reviewOrder'])->name('revieworder'); //fetch review transfer details
+/** Payment  **/

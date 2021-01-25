@@ -56,6 +56,12 @@
 
 /** Layouts **/
 
+.sidebarminimizer-pos {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+
 
 /** positions **/
 
@@ -198,6 +204,31 @@ li:hover{
 
 .bg-color-red {
     background-color: red !important;
+}
+
+.custom-control-label:before {
+    background-color: rgb(236, 162, 25) !important;
+}
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+    background-color: black !important;
+}
+
+.custom-control-input:checked~.custom-control-label::before {
+    color: #fff;
+    border-color: #7B1FA2 !important;
+}
+
+.custom-control-input:checked~.custom-control-label.red::before {
+    background-color: red !important;
+}
+
+.custom-control-input:checked~.custom-control-label.green::before {
+    background-color: green !important;
+}
+
+.bg-color-darklight {
+    background-color: rgb(49, 46, 46) !important;
 }
 
 
