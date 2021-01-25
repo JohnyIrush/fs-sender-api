@@ -17,7 +17,6 @@ class CreateBeneficiariesTable extends Migration
                 //$table->engine = 'InnoDB';
                 $table->id();
                 $table->bigInteger('user_id')->unsigned();
-                //$table->efficientUuid('uuid')->index();
                 $table->string('name', 191);
                 $table->string('address', 191);
                 $table->string('city', 191);
@@ -29,6 +28,7 @@ class CreateBeneficiariesTable extends Migration
                 $table->string('account_number', 191)->nullable();
                 $table->string('email', 191);
                 $table->string('phone', 45);
+                $table->tinyInteger('active');
                 $table->bigInteger('created_by')->nullable()->unsigned();
                 $table->bigInteger('updated_by')->nullable()->unsigned();
                 $table->timestamps();

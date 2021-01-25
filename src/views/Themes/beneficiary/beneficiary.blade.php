@@ -41,7 +41,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-3"></div>
                 <div class="col-md-6 text-center">
-                    <button class="btn-lg bg-color-yellowlight text-color-white"  data-toggle="modal" data-target="#beneficiarymodal">ADD A NEW BENEFICIARY</button>
+                    <beneficiarymodallauncher></beneficiarymodallauncher>
                 </div>
                 <div class="col-md-3"></div>
             </div>

@@ -26,7 +26,9 @@ class DatabaseSeeder extends Seeder
             BeneficiarySeeder::class,
             UsersTableSeeder::class,
             CountriesTableSeeder::class,
-            BankListSeeder::class
+            BankListSeeder::class,
+            CitiesTableSeeder::class,
+            StatesTableSeeder::class
             ]);
     }
 }

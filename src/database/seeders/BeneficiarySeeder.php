@@ -33,6 +33,7 @@ class BeneficiarySeeder extends Seeder
             'email' => 'j@gmail.com',
             'phone' => '0748607169',
             'created_by' => 1,
+            'active' => 1,
             'updated_by' =>1,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -51,6 +52,7 @@ class BeneficiarySeeder extends Seeder
             'email' => 'admin@gmail.com',
             'phone' => '0748607169',
             'created_by' => 1,
+            'active' => 1,
             'updated_by' =>1,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -69,6 +71,7 @@ class BeneficiarySeeder extends Seeder
             'email' => 'engineer@gmail.com',
             'phone' => '074134678',
             'created_by' => 1,
+            'active' => 1,
             'updated_by' =>1,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -87,6 +90,7 @@ class BeneficiarySeeder extends Seeder
             'email' => 'Os@gmail.com',
             'phone' => '07000000',
             'created_by' => 1,
+            'active' => 1,
             'updated_by' =>1,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);

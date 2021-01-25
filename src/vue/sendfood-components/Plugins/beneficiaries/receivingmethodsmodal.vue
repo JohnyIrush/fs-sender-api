@@ -46,13 +46,13 @@
                         <input type="hidden" name="" value="">
                         <label for="beneficiaryBankName">Bank Name</label>
         
-                        <select v-model="beneficiaryReceivingMethod.bank" id="beneficiaryBankName" name="bank" class="form-control" data-required="true" :class="{ 'is-invalid': beneficiaryReceivingMethod.errors.has('bank') }">
+                        <select v-model="form.bank" id="beneficiaryBankName" name="bank" class="form-control" data-required="true" :class="{ 'is-invalid': form.errors.has('bank') }">
                                 <option value="">Select Bank</option>
                                 <option value="1">Equity</option>
                                 <option value="2">Cooperative</option>
                                 <option value="3">Mastercard</option>
                                 <option   v-for="(banklist, index) in banklists" :key="index" :value="banklist.code" ></option>
-                                <has-error :beneficiaryReceivingMethod="beneficiaryReceivingMethod" field="bank"></has-error>
+                                <has-error :form="form" field="bank"></has-error>
                         </select>
 
                     </div>
@@ -85,11 +85,11 @@
                 <div class="form-group mt-3">
                     <label for="agentEmail">Agent</label>
         
-                    <select v-model="beneficiaryReceivingMethod.agent" class="form-control" id="agentEmail" name="" data-required="true" :class="{ 'is-invalid': beneficiaryReceivingMethod.errors.has('agent') }">
+                    <select v-model="form.agent" class="form-control" id="agentEmail" name="" data-required="true" :class="{ 'is-invalid': form.errors.has('agent') }">
                         <option  value="1">John Irungu</option>
                             <option value="2" >Mary</option>
                             <option value="3" >Jenifer</option>
-                             <has-error :beneficiaryReceivingMethod="beneficiaryReceivingMethod" field="agent"></has-error>
+                             <has-error :form="form" field="agent"></has-error>
                     </select>
                 </div>
                 <div class="form-group mt-3">
@@ -119,17 +119,17 @@
                 <div class="form-group">
                     <label for="mobileMoneyOperator">Mobile Operator</label>
         
-                    <select v-model="beneficiaryReceivingMethod.mobile_operator_id" class="form-control" id="mobileMoneyOperator" name="beneficiary_receive_method[mobile][operator]" data-required="true" :class="{ 'is-invalid': beneficiaryReceivingMethod.errors.has('mobile_operator_id') }">
+                    <select v-model="form.mobile_operator_id" class="form-control" id="mobileMoneyOperator" name="beneficiary_receive_method[mobile][operator]" data-required="true" :class="{ 'is-invalid': form.errors.has('mobile_operator_id') }">
                         <option value="">Select Operator</option>
                     </select>
-                    <has-error :beneficiaryReceivingMethod="beneficiaryReceivingMethod" field="mobile_operator_id"></has-error>
+                    <has-error :form="form" field="mobile_operator_id"></has-error>
                 </div>
         
                 <div class="form-group  mt-3">
                     <input type="hidden" name="" value="">
                     <label for="beneficiaryMobileAccount">Mobile Number</label>
                     <input  id="beneficiaryMobileAccount" type="text" name="beneficiary_receive_method[mobile][account_number]" class="form-control beneficiaryPhone phone" data-required="true" value="" maxlength="10">
-                    <has-error :beneficiaryReceivingMethod="beneficiaryReceivingMethod" field="mobile"></has-error>
+                    <has-error :form="form" field="mobile"></has-error>
                 </div>
                     <div class="form-group mt-3">
                       <ul class="list-inline text-right">
@@ -199,7 +199,7 @@
            <li></li>
            <li class="nav-item">
 
-            <button @click="createBeneficiaryReceivingMethod()" type="button" class="btn btn-lg ml-5 bg-color-yellowlight text-white text-center" >Confirm</button>
+            <button @click="createForm()" type="button" class="btn btn-lg ml-5 bg-color-yellowlight text-white text-center" >Confirm</button>
            </li>
           </ul>
 
@@ -214,27 +214,27 @@
 
 <script>
 
-import Vue from 'vue'
-import { Form, HasError, AlertError } from 'vform'
+//import Vue from 'vue'
+//import { Form, HasError, AlertError } from 'vform'
 
-Vue.component(HasError.name, HasError)
-Vue.component(AlertError.name, AlertError)
+//Vue.component(HasError.name, HasError)
+//Vue.component(AlertError.name, AlertError)
 
 export default {
     data(){
         return{
-            beneficiaryReceivingMethod: new Form({
+            form: new Form({
                bank: null,
                agent: null,
                mobile_operator_id: null,
                zipwallet: null,
                mobile: null,
             }),
-            bank_lists: []
+            banklists: []
         }
     },
     methods: {
-      createBeneficiaryReceivingMethod(){
+      createForm(){
          $('#methodsmodal').modal('hide');
          $('#your-modal-id').modal('hide');
         $('body').removeClass('modal-open');
@@ -243,7 +243,7 @@ export default {
         getbankList(){
           axios.get('/getbanklist')
           .then((response)=>{
-              this.bank_lists = response.data;
+              this.banklists = response.data;
               //console.log(response);
           })
         }

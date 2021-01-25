@@ -39,6 +39,9 @@ Route::group(['middleware' => ['web']], function () {
 Route::get('/beneficiary', [BeneficiaryController::class, 'beneficiary'])->name('beneficiary'); //render the sendfood beneficiary Ui
 Route::get('/countries', [BeneficiaryController::class, 'country'])->name('countries'); //fetch countries
 Route::post('/addbeneficiary', [BeneficiaryController::class, 'create'])->name('addbeneficiary'); //Create a new beneficiary
+Route::get('/states', [BeneficiaryController::class, 'state'])->name('states'); //fetch states
+Route::get('/cities', [BeneficiaryController::class, 'city'])->name('cities'); //fetch cities
+Route::get('/phonecodes', [BeneficiaryController::class, 'phoneCode'])->name('phonecodes'); //fetch phonecodes
 /** Beneficiaries **/
 
 /** Receiving Methods **/

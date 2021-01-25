@@ -8,6 +8,9 @@ use Cchivhima\Sendfood\Models\Beneficiary;
 
 use Cchivhima\Sendfood\Models\Country;
 
+use Cchivhima\Sendfood\Models\State;
+
+use Cchivhima\Sendfood\Models\City;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -59,5 +62,24 @@ class BeneficiaryController extends Controller
       $countries = Country::all();
       return response()->json($countries,200);
     }
+
+    public function state()
+    {
+      $states = State::all();
+      return response()->json($states,200);
+    }
+
+    public function city()
+    {
+      $cities = City::all();
+      return response()->json($cities,200);
+    }
+
+    public function phoneCode()
+    {
+      $phonecodes = DB::table('countries')->select('phonecode')->get();
+      return response()->json($phonecodes,200);
+    }
+
 
 }

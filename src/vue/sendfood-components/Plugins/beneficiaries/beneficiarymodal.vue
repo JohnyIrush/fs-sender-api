@@ -34,12 +34,8 @@
           <!--Beneficiary Country-->
           <div class="form-group col-12 col-sm-6 p-1"><label for="country">Country</label>
             <select v-model="form.country" name="country" placeholder="Select a country" id="country" class="form-control" :class="{ 'is-invalid': form.errors.has('country') }"  >
-                 <option value="1" > Kenya </option>
-                 <option value="2" > USA </option>
-                 <option value="3" > CANADA </option>
-              <!--<div v-for="(country, index) in countries" :key="index">
-             <option value="1" >{{country.name}} Kenya </option>
-              </div>-->
+                 <option v-for="(country, index) in countries" :key="index" :value="country.name" > {{country.name}} </option>
+
             </select>
             <has-error :form="form" field="country"></has-error>
           </div>
@@ -48,9 +44,7 @@
             <label for="state">Province/State</label>
             <select v-model="form.state" name="state" id="state" placeholder="Select a province/state" class="form-control" :class="{ 'is-invalid': form.errors.has('state') }">
               <option value="" disabled="" selected="">Select a country to view states</option>
-                 <option value="1" > Nairobi </option>
-                 <option value="2" > Newyork </option>
-                 <option value="3" > Canada </option>
+                 <option v-for="(state, index) in states" :key="index" :value="state.name" > {{state.name}}  </option>
             </select>
             <has-error :form="form" field="state"></has-error>
           </div>
@@ -64,9 +58,7 @@
            <label for="city">City</label>
            <select v-model="form.city" name="city" placeholder="Select a city" id="city" class="form-control" :class="{ 'is-invalid': form.errors.has('city') }">
              <option value="" disabled="" selected="">Select a City</option>
-                <option value="1" > Nairobi </option>
-                 <option value="2" > Newyork </option>
-                 <option value="3" > Canada </option>
+                <option v-for="(city, index) in cities" :key="index" :value="city.name" > {{city.name}} </option>
            </select>
            <has-error :form="form" field="city"></has-error>
          </div>
@@ -97,9 +89,7 @@
               <li>
                 <select v-model="form.mobileCountry" name="mobileCountry" class="form-control form-control-sm" :class="{ 'is-invalid': form.errors.has('mobileCountry') }">
                   <option>Small select</option>
-                  <option value="1">+123</option>
-                  <option value="2">+254</option>
-                  <option value="3">+288</option>
+                  <option v-for="(phonecode, index) in phonecodes" :key="index" :value="phonecode.phonecode" >+ {{phonecode.phonecode}} </option>
                 </select>
                 <has-error :form="form" field="mobileCountry"></has-error>
               </li>
@@ -162,15 +152,43 @@ export default {
             mobileCountry: null
       }),
       editmode: false,
-      countries: []
+      countries: [],
+      states: [],
+      cities: [],
+      phonecodes: []
     }
   },
   methods:{
+    //fetch PhoneCodes
+    getPhoneCodes(){
+     axios.get('/phonecodes')
+     .then((response)=>{
+       this.phonecodes = response.data;
+       //console.log(response);
+     })
+    },
+    //fetch Cities
+    getCities(){
+     axios.get('/cities')
+     .then((response)=>{
+       this.cities = response.data;
+       //console.log(response);
+     })
+    },
+    //fetch states
+    getStates(){
+     axios.get('/states')
+     .then((response)=>{
+       this.states = response.data;
+       //console.log(response);
+     })
+    },
     //fetch coutries
     getCountries(){
      axios.get('/countries')
      .then((response)=>{
-       this.coutries = response.data;
+       this.countries = response.data;
+       this.phonecodes = response.data;
        console.log(response);
      })
     },
@@ -202,7 +220,24 @@ export default {
     }
    },
    mounted(){
-     this.getCountries();
+
+
+       setTimeout(() => {
+        this.getCountries();
+
+       }, 5000);
+
+       setTimeout(() => {
+        this.getCities();
+       }, 5000);
+
+       setTimeout(() => {
+        this.getStates();
+       }, 5000);
+
+
+
+     //this.getPhoneCodes();
    }
     
 }

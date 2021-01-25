@@ -7,7 +7,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 
-
 class User extends Authenticatable
 {
     use Notifiable;
@@ -29,41 +28,6 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
-
-    public function orders(){
-        return $this->hasMany('App\Order');
-    }
-
-    public function roles(){
-        return $this->belongsToMany('App\Role');
-    }
-
-    public function hasAnyRoles($roles){
-        if($this->roles()->whereIn('name',$roles)->first()){
-         return true;
-        }
-        return false;
-    } 
-
-    public function hasRole($role){
-        if($this->roles()->where('name',$role)->first()){
-         return true;
-        }
-        return false;
-    }
-    
-    public function addresses(){
-        return $this->hasMany('App\Adress');
-    }
 
 
 }
