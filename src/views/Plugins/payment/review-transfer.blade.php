@@ -13,6 +13,7 @@
                  </div>
                  <!-- /.col-lg-12 -->
         </div>
+        @include('sendfood::Themes.partials.messages')
         <div class="col-md-12 white-box  card">
             <div class="row white-box">
               <div class="col-md-12">
@@ -29,30 +30,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-12">
-                                <div class="d-block my-3">
-                                    <div class="custom-control custom-radio">
-                                        <input id="credit" name="paymentMethod" type="radio" class="custom-control-input text-white" checked="" required="">
-                                        <label class="custom-control-label  custom-control-label" for="credit"> <h4>E-mail Payment</h4>  </label>
-                                        <br> <label> <small><i>  Free 0.00(T&Cs)</i></small> </label>
-                                      </div>
-                                    <div class="custom-control custom-radio">
-                                      <input id="credit" name="paymentMethod" type="radio" class="custom-control-input text-white" checked="" required="">
-                                      <label class="custom-control-label  custom-control-label" for="credit"> <h4>ZipWallet</h4>    </label>
-                                      <br> <label> <small><i>  CAD/USD/GBP/EUR 0.00</i></small> </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                      <input id="debit" name="paymentMethod" type="radio" class="custom-control-input text-white" required="">
-                                      <label class="custom-control-label" for="credit"> <h4>INTERAC Online</h4>  </label>
-                                      <br> <label> <small><i>  Free 0.00(T&Cs)</i></small> </label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                      <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input text-white" required="">
-                                      <label class="custom-control-label custom-control-label" for="credit"> <h4>Debit/Credit Card</h4>  </label>
-                                      <br> <label> <small><i> VISA/MC/AMEX Fee 4.25%</i></small> </label>
-                                    </div>
-                                  </div>
-                            </div>
+                            <paymentmethods></paymentmethods>
                         </div>
                     </div>
                     <div class="col-md-7">
@@ -60,12 +38,12 @@
                             <div class="d-flex flex-column mb-3 pb-3 border-bottom">
                                 <h1>Transfer Details</h1>
                                 <div class="row d-flex justify-content-between">
-                                    <div  class=" col-md-6 key text-primary">Cart total</div>
-                                    <div  class=" col-md-6 value text-primary">CAD151668950</div>
+                                    <div  class=" col-md-6 key ">Cart total</div>
+                                    <div  class=" col-md-6 value ">  {{Session::get('cart')->totalPrice}} </div>
                                 </div>
                                 <div class="row d-flex justify-content-between">
                                     <div class="col-md-6 key">Total items</div>
-                                    <div class="col-md-6 value">2</div>
+                                    <div class="col-md-6 value"> {{Session::get('cart')->totalQty}} </div>
                                 </div>
                                 <div class="row d-flex justify-content-between">
                                     <div class="col-md-6 key">Delivery fee</div>
@@ -75,12 +53,12 @@
                                     <div class="col-md-6 key">Processing fee</div>
                                     <div class="col-md-6 value">CAD1</div>
                                 </div><div class="row d-flex justify-content-between">
-                                    <div class="col-md-6 key">Payment method</div>
-                                    <div class="col-md-6 value">Email payment</div>
+                                    <div  class="col-md-6 key">Payment method: </div>
+                                    <div class="col-md-6 value" id="selectedmethod"></div>
                                 </div>
                                 <div class="row d-flex justify-content-between">
-                                    <div class="col-md-6 key text-primary ">Total payable</div>
-                                    <div class="col-md-6 value text-primary">CAD151668951</div>
+                                    <div class="col-md-6 key  ">Total payable</div>
+                                    <div class="col-md-6 value ">{{Session::get('cart')->totalPrice}}</div>
                                 </div>
                             </div>
                             <hr class="mt-3">
@@ -88,21 +66,29 @@
                                     <div class="d-flex flex-column w-100 ">
                                         <h5>Beneficiary details</h5>
                                         <div class="row d-flex justify-content-between">
-                                            <span class="col-md-6 key text-primary ">Beneficiary name</span>
-                                            <span class="col-md-6 value text-primary">kim</span>
+                                            <span class="col-md-6 key  ">Beneficiary name</span>
+                                            <span class="col-md-6 value "> {{$beneficiary->name}} </span>
                                         </div> 
                                         <div class="row d-flex justify-content-between">
-                                            <span class="col-md-6 key text-primary ">Beneficiary email address</span>
-                                            <span class="col-md-6 value text-primary">kim@email.anycom</span>
+                                            <span class="col-md-6 key  ">Beneficiary email address</span>
+                                            <span class="col-md-6 value ">{{$beneficiary->email}}</span>
                                         </div> 
                                         <div class="row d-flex justify-content-between">
-                                            <span class="col-md-6 key text-primary ">Beneficiary address</span>
-                                            <span class="col-md-6 value text-primary">x city, Y state, Z Country abc street, z block</span>
+                                            <span class="col-md-6 key  ">Beneficiary address</span>
+                                            <span class="col-md-6 value ">{{$beneficiary->city}}, {{$beneficiary->state}}, {{$beneficiary->country}}</span>
                                         </div>
                                         <div class="row d-flex justify-content-between">
-                                            <span class="col-md-6 key text-primary ">Beneficiary phone number</span>
-                                            <span class="col-md-6 value text-primary">+263468468648167</span>
+                                            <span class="col-md-6 key  ">Beneficiary phone number</span>
+                                            <span class="col-md-6 value "> {{$beneficiary->phone}} </span>
                                         </div>
+                                        <hr>
+                                        <div class="row d-flex justify-content-between">
+                                            <span class="col-md-12 key  ">Beneficiary receive through phone</span>
+                                            <div class="row d-flex justify-content-between">
+                                                <span class="col-md-8 key  "></span>
+                                                <span class="col-md-4 value text-left "> {{$beneficiary->phone}} </span>
+                                            </div> 
+                                        </div>                                        
                                     </div>
                                 </div>
                             </div>
@@ -124,6 +110,7 @@
                 </div>
               </div>
               <div class="row">
+                <hr>
                   <div class="col-md-12">
                     <ul class="list-inline text-right">
                         <li>

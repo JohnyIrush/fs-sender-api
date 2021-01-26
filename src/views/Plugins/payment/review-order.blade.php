@@ -13,6 +13,7 @@
                  </div>
                  <!-- /.col-lg-12 -->
         </div>
+        @include('sendfood::Themes.partials.messages')
         <div class="row-justify-content-center">
             <div class="col-md-12">
                 <h1>Review Your Order</h1>
@@ -30,11 +31,10 @@
                                   <h4>Shipping Address </h4>
                                 </li>
                                 <li class="nav-item">
-                                  <p>cathrine chivhima <br>
-                                    166 Kincora Health NW <br>
-                                    calgary, AB T3ROCG <br>
-                                    Canada <br>
-                                    Phone: 847565883635 <br>
+                                   <p> {{$beneficiary->name}}    <br>
+                                    {{$beneficiary->postal_code}} {{$beneficiary->city}}, {{$beneficiary->state}},<br> 
+                                     {{$beneficiary->country}}  <br>
+                                    Phone:  {{$beneficiary->phone}} <br>
                                   </p>
                                 </li>
                                 <li class="text-left">
@@ -55,11 +55,10 @@
                                 <br>
                                 <li class="nav-item">
                                     <h5>Billing Adress <a href="#">Change</a>   </h5>
-                                    <p>cathrine chivhima <br>
-                                        166 Kincora Health NW <br>
-                                        calgary, AB T3ROCG <br>
-                                        Canada <br>
-                                        Phone: 847565883635 <br>
+                                    <p> {{$beneficiary->name}}    <br>
+                                        {{$beneficiary->postal_code}} {{$beneficiary->city}}, {{$beneficiary->state}},<br> 
+                                         {{$beneficiary->country}}  <br>
+                                        Phone:  {{$beneficiary->phone}} <br>
                                       </p>
                                 </li>
                               </ul>
@@ -81,7 +80,41 @@
                  </div>
                  
                  <div class="row">
-                    <div class="col-md-12 white-box  card"></div>
+                    <div class="col-md-12 white-box  card">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4 class="text-color-orange"> Estimated Delivery FEB 25 2021 - MATCH 16 2021 </h4>
+                            </div>
+                        </div>
+                        <div class="row-justify-content-between">
+                            <div class="col-md-8">
+                                <div class="row-justify-content-between">
+                                    <orderreview></orderreview>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="d-block">
+                                    <h4 class="text-left" > Choose Delivery Option: </h4>
+                                    <div class="custom-control custom-radio">
+                                        <input   id="emailpayment" value="1" name="paymentMethod" type="radio" class="custom-control-input text-white" checked="" required="">
+                                        <label class="custom-control-label  custom-control-label" >Free Prime Delivery. </label>
+                                    </div>
+                                    <div class="custom-control custom-radio">
+                                      <input   id="credit" name="paymentMethod" value="2" type="radio" class="custom-control-input text-white" checked="" required="">
+                                      <label class="custom-control-label  custom-control-label" for="credit"> Free Shopping    </label>
+                                    </div>
+                                    <div class="custom-control custom-radio">
+                                      <input   id="debit"  name="selectedMethod" type="radio" class="custom-control-input text-white" required="" value="3">
+                                      <label class="custom-control-label" for="credit"> CDN$296.00 Shipping </label>
+                                    </div>
+                                    <div class="custom-control custom-radio">
+                                      <input   id="paypal" name="paymentMethod" type="radio" class="custom-control-input text-white" required="" value="4">
+                                      <label class="custom-control-label" for="credit"> CDN$465768.00 Shipping </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                  </div>
             </div>
             <div class="col-md-3   card">
@@ -99,31 +132,31 @@
                         <li class="nav-item">
                             <div class="d-flex flex-column mb-3 pb-3 border-bottom">
                                 <div class="row d-flex justify-content-between">
-                                    <div  class=" col-md-6 key ">Items (8)</div>
-                                    <div  class=" col-md-6 value ">CDNS 1241</div>
+                                    <div  class=" col-md-6 key ">Items ( {{Session::get('cart')->totalQty}}  )</div>
+                                    <div  class=" col-md-6 value ">{{Session::get('cart')->totalPrice}}</div>
                                 </div>
                                 <div class="row d-flex justify-content-between">
                                     <div class="col-md-6 key">Shipping & Handling</div>
-                                    <div class="col-md-6 value"> CDNS 204 </div>
+                                    <div class="col-md-6 value"> ? </div>
                                 </div>
                                 <div class="row d-flex justify-content-between">
                                     <div class="col-md-6 key">Estimated Regulatory Fess:</div>
-                                    <div class="col-md-6 value">CDNS 8.00</div>
+                                    <div class="col-md-6 value"> ? </div>
                                 </div>
                                 <hr>
                             </div>
                             <div class="d-flex flex-column mb-3 pb-3 border-bottom">
                                 <div class="row d-flex justify-content-between">
                                     <div  class=" col-md-6 key ">Total before tax: </div>
-                                    <div  class=" col-md-6 value ">CDNS 1,432.35</div>
+                                    <div  class=" col-md-6 value ">{{Session::get('cart')->totalPrice}}</div>
                                 </div>
                                 <div class="row d-flex justify-content-between">
                                     <div class="col-md-6 key">Estimated GST/HST: </div>
-                                    <div class="col-md-6 value"> CDNS 71.64 </div>
+                                    <div class="col-md-6 value"> ? </div>
                                 </div>
                                 <div class="row d-flex justify-content-between">
                                     <div class="col-md-6 key">Estimated PST/RST/QST:</div>
-                                    <div class="col-md-6 value">CDNS 0.00</div>
+                                    <div class="col-md-6 value">?</div>
                                 </div>
                                 <hr>
                             </div>
@@ -133,7 +166,7 @@
                                        <h3>Order Total:</h3> 
                                      </div>
                                     <div  class=" col-md-6 value ">
-                                      <h3>CDNS 1,503.99</h3>  
+                                      <h3>{{Session::get('cart')->totalPrice}}</h3>  
                                     </div>
                                 </div>
                             </div>

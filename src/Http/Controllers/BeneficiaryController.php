@@ -65,7 +65,8 @@ class BeneficiaryController extends Controller
 
       //dd();
       Session::put('beneficiaryid',DB::table('beneficiaries')->orderBy('id', 'DESC')->first()->id);
-
+      Session::save();
+      dd(Session::get('beneficiaryid'));
     }
 
     //select beneficiary
@@ -73,7 +74,9 @@ class BeneficiaryController extends Controller
       //dd($request);
       $memory = new Memory();
       $memory->beneficiary($request->beneficiaryid);
-      dd(Session::get('beneficiaryid'));
+      Session::get('beneficiaryid');
+      Session::save();
+      //dd(Session::get('beneficiaryid'));
     }
 
     //fetch beneficiaries

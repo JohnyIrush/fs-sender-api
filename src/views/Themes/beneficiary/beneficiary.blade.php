@@ -12,6 +12,7 @@
               </div>
               <!-- /.col-lg-12 -->
      </div>
+     @include('sendfood::Themes.partials.messages')
      <div class="col-md-12 white-box  card">
          <div class="row white-box">
           <div class="col-md-12">

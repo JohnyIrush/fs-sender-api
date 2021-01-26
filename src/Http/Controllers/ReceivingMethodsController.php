@@ -23,6 +23,8 @@ use Cchivhima\Sendfood\Models\ZipWallet;
 use Cchivhima\Sendfood\Http\Drivers\Memory;
 
 use DB;
+
+use Session;
  
 class ReceivingMethodsController extends Controller
 {
@@ -110,7 +112,9 @@ class ReceivingMethodsController extends Controller
       $beneficiaryreceivingmethod->save();
 
       $memory = new Memory();
-      $memory->receivingMethod(DB::table('beneficiarie_receiving_methods')->orderBy('id', 'DESC')->first()->id);
+      //$memory->receivingMethod(DB::table('beneficiarie_receiving_methods')->orderBy('id', 'DESC')->first()->id);
+      Session::put('receivingmethod',DB::table('beneficiarie_receiving_methods')->orderBy('id', 'DESC')->first()->id);
+      Session::save();
     }
 
 

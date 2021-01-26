@@ -8,6 +8,9 @@ use Session;
 class Memory
 {
 
+    public $slectedpaymentMethod = null; //store
+
+
     public function __construct(){
     
     }
@@ -19,11 +22,18 @@ class Memory
         Session::put('beneficiaryid',$beneficiaryid);
     }
 
-    //set created payment method
+    //set created receiving Method method
     public function receivingMethod($receivingmethod)
     {
 
         Session::put('receivingmethod',$receivingmethod);
+    }
+
+    //set created payment method
+    public function paymentMethod($setpaymentmethod)
+    {
+    Session::put('selectpaymentmethod',$setpaymentmethod);
+    Session::save();
     }
     
 }

@@ -50,6 +50,7 @@ Route::post('selectedbeneficiary', [BeneficiaryController::class, 'selectBenefic
 /** Beneficiaries **/
 
 /** Receiving Methods **/
+Route::group(['middleware' => ['web']], function () {
 Route::get('/getbanklist', [ReceivingMethodsController::class, 'bankList'])->name('getbanklist'); //fetch bank lists
 Route::get('/agentlist', [ReceivingMethodsController::class, 'agentList'])->name('agentlist'); //fetch agent lists
 Route::get('/agentlocation/{id}', [ReceivingMethodsController::class, 'agentLocation'])->name('agentlocation'); //fetch agent location
@@ -59,11 +60,13 @@ Route::get('/mobilewallettemplates', [ReceivingMethodsController::class, 'mobile
 Route::get('/cashpickuptemplates', [ReceivingMethodsController::class, 'cashPickUpTemplates'])->name('cashpickuptemplates'); //fetch cash pick templates
 Route::get('/zipwallets', [ReceivingMethodsController::class, 'zipWallet'])->name('zipwallets'); //fetch zip wallets
 Route::post('createreceivingmethod', [ReceivingMethodsController::class, 'createReceivingMethod'])->name('createreceivingmethod'); //create receiving Method
+});
 /** Receiving Methods **/
 
 /** Payment  **/
 Route::group(['middleware' => ['web']], function () {
 Route::get('/reviewtransfer', [PaymentController::class, 'reviewTransfer'])->name('reviewtransfer'); //fetch review transfer details
-Route::get('/revieworder', [PaymentController::class, 'reviewOrder'])->name('revieworder'); //fetch review transfer details
+Route::get('/revieworder', [PaymentController::class, 'reviewOrder'])->name('revieworder'); //fetch review transfer details selectedmethod
+Route::post('selectpaymentmethod', [PaymentController::class, 'selectedPaymentMethod'])->name('selectpaymentmethod'); //set selected payment method
 });
 /** Payment  **/
