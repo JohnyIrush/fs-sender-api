@@ -38,3 +38,4 @@ npm install tiptap-extensions
 php artisan make:resource PostResource
 npm i axios vform
 php artisan ui vue --auth
+composer remove laravel/nova

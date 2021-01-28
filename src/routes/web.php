@@ -5,7 +5,10 @@ use Cchivhima\Sendfood\Http\Controllers\ProductsController; //Import Send Food P
 use Cchivhima\Sendfood\Http\Controllers\PurchaseController; //Import Send Food Products Purchase Controller -> this controller controls all aspects of Products purchase
 use Cchivhima\Sendfood\Http\Controllers\BeneficiaryController; //Import Send Food Beneficiaries Controller -> this controller controls all aspects of Beneficiaries
 use Cchivhima\Sendfood\Http\Controllers\ReceivingMethodsController; //Import Send Food payment methods Controller -> this controller controls all aspects of Payment Methods 
-use Cchivhima\Sendfood\Http\Controllers\PaymentController;
+use Cchivhima\Sendfood\Http\Controllers\PaymentController; //Controls all Aspects of Payments
+use Cchivhima\Sendfood\Http\Controllers\StripePaymentController; //Handles Payment with stripe
+use Cchivhima\Sendfood\Http\Controllers\ZipWalletPaymentController; //Handles Payment with zipwallet
+use Cchivhima\Sendfood\Http\Controllers\InteracOnlinePaymentController; //Handles Payment with Interac Online
 /** Send food package UI **/
 Route::get('sendfooddashboard', [SendFoodUiController::class, 'dashboard'])->name('sendfooddashboard'); //render the sendfood dashboard
 /** Send food package UI **/
@@ -70,3 +73,16 @@ Route::get('/revieworder', [PaymentController::class, 'reviewOrder'])->name('rev
 Route::post('selectpaymentmethod', [PaymentController::class, 'selectedPaymentMethod'])->name('selectpaymentmethod'); //set selected payment method
 });
 /** Payment  **/
+
+/**Payment Gateways Intergration **/
+Route::group(['middleware' => ['web']], function () {
+    Route::get('paywithstripe', [StripePaymentController::class, 'payWithStripe'])->name('paywithstripe'); //Render Stripe Payment Front-end
+    Route::post('stripe', [StripePaymentController::class, 'makeStripePayment'])->name('stripe'); //execute Stripe Payment
+    Route::get('stripebillingportal', [StripePaymentController::class, 'stripeBillingPortal'])->name('stripebillingportal'); //Redirect Stripe Buyers to Stripe Billing Portal.
+
+    Route::get('paywithzipwallet', [ZipWalletPaymentController::class, 'payWithZipWallet'])->name('paywithzipwallet'); //Render zipwallet Payment Front-end
+    Route::post('zipwallet', [ZipWalletPaymentController::class, 'makeZipWalletPayment'])->name('zipwallet'); //Zipwallet Payment
+    Route::get('paywithinteraconline', [InteracOnlinePaymentController::class, 'payWithInteracOnline'])->name('paywithinteraconline'); //Render interac online Payment Front-end
+    Route::post('interaconline', [InteracOnlinePaymentController::class, 'makeInteracOnlinePayment'])->name('interaconline'); //Interac Online Payment
+    });
+/**Payment Gateways Intergration **/

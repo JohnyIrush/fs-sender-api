@@ -16,6 +16,7 @@ Vue.component('cart-quantity', require('./sendfood-components/Plugins/widgets/ca
 Vue.component('exixtingbeneficiaries', require('./sendfood-components/Plugins/beneficiaries/exixtingbeneficiaries.vue').default); //cart quantity 
 Vue.component('paymentmethods', require('./sendfood-components/Plugins/widgets/paymentmethods.vue').default); //paymentmethods selection 
 Vue.component('orderreview', require('./sendfood-components/Plugins/widgets/orderreview.vue').default); //paymentmethods selection 
+Vue.component('paymentmethod', require('./sendfood-components/Plugins/widgets/paymentMethod.vue').default); //paymentmethods selection 
 
 //Event bus
 var Event = new Vue();
@@ -26,6 +27,7 @@ Vue.use(Event);
 
 import Swal from "vue-sweetalert2"; //Swalt Msgs
 Vue.use(Swal); //
+
 
 import { Form, HasError, AlertError } from 'vform';
 Vue.component(HasError.name, HasError)

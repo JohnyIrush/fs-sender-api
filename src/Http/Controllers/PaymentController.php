@@ -2,7 +2,6 @@
 
 namespace Cchivhima\Sendfood\Http\Controllers;
 
-
 use Illuminate\Http\Request;
 
 use Session;

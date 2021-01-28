@@ -123,7 +123,15 @@
                  <div class="col-md-11 card white-box">
                     <ul class="nav flex-column">
                         <li class="nav-item text-center">
-                          <button class="btn bg-color-yellowlight text-center pl-2 pr-2">Place Your Order</button>
+                          @if(Session::get('selectpaymentmethod')['id']==4)
+                           <a href="{{route('paywithstripe')}}" class="btn bg-color-yellowlight text-center pl-2 pr-2">Place Your Order</a>
+                          @endif
+                          @if(Session::get('selectpaymentmethod')['id']==2)
+                           <a href="{{route('paywithzipwallet')}}" class="btn bg-color-yellowlight text-center pl-2 pr-2">Place Your Order</a>
+                          @endif
+                          @if(Session::get('selectpaymentmethod')['id']==3)
+                           <a href="{{route('paywithinteraconline')}}" class="btn bg-color-yellowlight text-center pl-2 pr-2">Place Your Order</a>
+                          @endif
                         </li>
                         <br>
                         <li class="nav-item text-center">

@@ -1,0 +1,18 @@
+.panel-title {
+    display: inline !important;
+    font-weight: bold !important;
+}
+
+.display-table {
+    display: table !important;
+}
+
+.display-tr {
+    display: table-row !important;
+}
+
+.display-td {
+    display: table-cell !important;
+    vertical-align: middle !important;
+    width: 61% !important;
+}

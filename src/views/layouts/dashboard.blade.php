@@ -43,6 +43,15 @@
     <!--fontawesome styles-->
     <link href="/sendfoodassets/fontawesome/css/all.css" rel="stylesheet"> <!--load all styles -->
     <script defer src="/sendfoodassets/fontawesome/js/all.js"></script> <!--load all styles -->
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+    <script src="https://gatewayt.moneris.com/chkt/js/chkt_v1.00.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+
+    
 </head>
 
 <body>
@@ -65,7 +74,6 @@
         <div id="page-wrapper">
             <main>
                 @yield('content')
-                <shoporcheckout></shoporcheckout>
             </main>
         </div>
         <!-- /#page-wrapper -->
@@ -108,15 +116,10 @@
 
     <!--my scripts-->
     <script src="/sendfoodassets/pixel-html/js/customizedjs.js"></script>
-    
-    <!--
+    <script src="/sendfoodassets/pixel-html/js/stripe.js"></script>
+    <script src="https://gatewayt.moneris.com/chkt/js/chkt_v1.00.js"></script>
+    <script src="/sendfoodassets/pixel-html/js/moneris.js"></script>
 
-
-
-
-    -->
-    <!--<script src="/sendfoodassets/pixel-html/js/dashboard1.js"></script>-->
-    <!--<script src="/sendfoodassets/plugins/bower_components/toast-master/js/jquery.toast.js"></script>-->
 </body>
 
 </html>
