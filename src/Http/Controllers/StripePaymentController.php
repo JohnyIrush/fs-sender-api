@@ -100,6 +100,7 @@ class StripePaymentController extends Controller
             Session::forget('cart');
             Session::forget('beneficiaryid');
             Session::forget('receivingmethod');
+            Session::forget('selectpaymentmethod');
             Session::save();
           }else{
             return back()->with(['error'=>'Payment failed please try again']);

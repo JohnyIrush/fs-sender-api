@@ -108,17 +108,17 @@
     <script src="/sendfoodassets/plugins/bower_components/waypoints/lib/jquery.waypoints.js"></script>
     <script src="/sendfoodassets/plugins/bower_components/counterup/jquery.counterup.min.js"></script>
 
-    <script src="/sendfoodassets/plugins/bower_components/raphael/raphael-min.js"></script>
-    <script src="/sendfoodassets/plugins/bower_components/morrisjs/morris.js"></script>
+    <script src="/sendfoodassets/plugins/bower_components/raphael/raphael-min.js" defer></script>
+    <script src="/sendfoodassets/plugins/bower_components/morrisjs/morris.js" defer></script>
 
-    <script src="/sendfoodassets/pixel-html/js/dashboard1.js"></script>
-    <script src="/sendfoodassets/pixel-html/js/custom.min.js"></script>
+    <script src="/sendfoodassets/pixel-html/js/dashboard1.js" defer></script>
+    <script src="/sendfoodassets/pixel-html/js/custom.min.js" defer></script>
 
     <!--my scripts-->
-    <script src="/sendfoodassets/pixel-html/js/customizedjs.js"></script>
-    <script src="/sendfoodassets/pixel-html/js/stripe.js"></script>
-    <script src="https://gatewayt.moneris.com/chkt/js/chkt_v1.00.js"></script>
-    <script src="/sendfoodassets/pixel-html/js/moneris.js"></script>
+    <script src="/sendfoodassets/pixel-html/js/customizedjs.js" defer></script>
+    <script src="/sendfoodassets/pixel-html/js/stripe.js" defer></script>
+    <script src="https://gatewayt.moneris.com/chkt/js/chkt_v1.00.js" defer></script>
+    <script src="/sendfoodassets/pixel-html/js/moneris.js" defer></script>
 
 </body>
 
