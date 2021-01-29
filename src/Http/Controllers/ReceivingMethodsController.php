@@ -28,6 +28,10 @@ use Session;
  
 class ReceivingMethodsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');   
+    }
     /**
      * fetch bank lists
      */

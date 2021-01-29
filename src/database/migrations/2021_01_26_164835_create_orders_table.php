@@ -16,8 +16,9 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('beneficiary_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
+            $table->text('charge_id');
             $table->bigInteger('beneficiarie_receiving_method_id')->unsigned();
-            $table->bigInteger('payment_id')->unsigned();
             $table->text('order');
             $table->timestamps();
         });

@@ -19,6 +19,11 @@ use Cchivhima\Sendfood\Models\Drink;
 class PurchaseController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth');   
+    }
+
     public $newcartproduct;
     /**
      * Show Items added into the cart

@@ -3,31 +3,24 @@ var monerisCheckout = (function() {
     var request_url = "";
     var checkout_div = "moneris-checkout";
     var fullscreen = "T";
-    //Callbacks that modify checkout behaviour
-    var update_callbacks = {
-        payment_submit: "", //Delay starting transaction until callback is complete.
-        remove_back_button: ""
-    }; //set this callback to remove back button from checkout form and receipt page.
 
     var callbacks = {
         page_loaded: "",
         cancel_transaction: "",
         payment_receipt: "",
         payment_complete: "",
-        error_event: "",
-        payment_submit: "",
-        remove_back_button: ""
+        error_event: ""
     };
 
     function monerisCheckout() {
         var me = this;
         /*
-        window.addEventListener('message', function(e) 
-        	{
-        	console.log("setting receive message");
-        	me.receivePostMessage(e);
-        });
-        */
+    			window.addEventListener('message', function(e) 
+    	    	 {
+    				console.log("setting receive message");
+    				me.receivePostMessage(e);
+    	    	});
+				*/
 
         var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
         var eventHandler = window[eventMethod];
@@ -59,10 +52,6 @@ var monerisCheckout = (function() {
     monerisCheckout.prototype.setCallback = function(name, func) {
         if (name in callbacks) {
             callbacks[name] = func;
-
-            if (name in update_callbacks) {
-                update_callbacks[name] = true;
-            }
         } else {
             console.log("setCallback - Invalid callback defined: " + name);
         }
@@ -164,9 +153,9 @@ var monerisCheckout = (function() {
         }
     };
 
-    monerisCheckout.prototype.sendFrameMessage = function(requestAction) {
+    monerisCheckout.prototype.closeCheckout = function() {
         var frameRef = document.getElementById(checkout_div + "-Frame").contentWindow;
-        var request = JSON.stringify({ action: requestAction });
+        var request = JSON.stringify({ action: "close_request" });
         frameRef.postMessage(request, request_url);
     };
 
@@ -200,11 +189,6 @@ var monerisCheckout = (function() {
 
                     document.getElementById(checkout_div).innerHTML = "";
                     document.body.classList.remove("checkoutHtmlStyleFromiFrame");
-                } else if (respObj["handler"] == "get_callbacks") {
-                    //Update checkout on which update_callbacks are registered.
-                    var frameRef = document.getElementById(checkout_div + "-Frame").contentWindow;
-                    var request = JSON.stringify({ action: "callbacks", data: update_callbacks });
-                    frameRef.postMessage(request, request_url);
                 } else {
                     var callback = callbacks[respObj["handler"]];
                     if (typeof callback === "function") {
@@ -218,28 +202,9 @@ var monerisCheckout = (function() {
         }
     };
 
-    monerisCheckout.prototype.closeCheckout = function() {
-        this.sendFrameMessage("close_request");
-    };
-
     monerisCheckout.prototype.setNewShippingRates = function(json) {
         this.sendPostMessage(json);
     };
 
-    monerisCheckout.prototype.startTransaction = function(json) {
-        this.sendFrameMessage("start_transaction");
-    };
-
     return monerisCheckout;
 })();
-//alert('loaded')
-
-var myCheckout = new monerisCheckout();
-myCheckout.setMode("qa");
-myCheckout.setCheckoutDiv("monerisCheckout");
-
-myCheckout.setCallback("page_loaded", myPageLoad);
-myCheckout.setCallback("cancel_transaction", myCancelTransaction);
-myCheckout.setCallback("error_event", myErrorEvent);
-myCheckout.setCallback("payment_receipt", myPaymentReceipt);
-myCheckout.setCallback("payment_complete", myPaymentComplete);

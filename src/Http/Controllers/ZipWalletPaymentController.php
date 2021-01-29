@@ -9,7 +9,13 @@ use Session;
 
 class ZipWalletPaymentController extends Controller
 {
-    /**
+
+    public function __construct()
+    {
+        $this->middleware('auth');   
+    }
+    
+   /**
      * Render Pay with Stripe Front-end
      * 
      */

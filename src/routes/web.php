@@ -76,13 +76,21 @@ Route::post('selectpaymentmethod', [PaymentController::class, 'selectedPaymentMe
 
 /**Payment Gateways Intergration **/
 Route::group(['middleware' => ['web']], function () {
+    //stripe
     Route::get('paywithstripe', [StripePaymentController::class, 'payWithStripe'])->name('paywithstripe'); //Render Stripe Payment Front-end
     Route::post('stripe', [StripePaymentController::class, 'makeStripePayment'])->name('stripe'); //execute Stripe Payment
     Route::get('stripebillingportal', [StripePaymentController::class, 'stripeBillingPortal'])->name('stripebillingportal'); //Redirect Stripe Buyers to Stripe Billing Portal.
 
     Route::get('paywithzipwallet', [ZipWalletPaymentController::class, 'payWithZipWallet'])->name('paywithzipwallet'); //Render zipwallet Payment Front-end
     Route::post('zipwallet', [ZipWalletPaymentController::class, 'makeZipWalletPayment'])->name('zipwallet'); //Zipwallet Payment
+    
+    //interact onlien
     Route::get('paywithinteraconline', [InteracOnlinePaymentController::class, 'payWithInteracOnline'])->name('paywithinteraconline'); //Render interac online Payment Front-end
     Route::post('interaconline', [InteracOnlinePaymentController::class, 'makeInteracOnlinePayment'])->name('interaconline'); //Interac Online Payment
+    Route::post('interaconline', [InteracOnlinePaymentController::class, 'makeInteracOnlinePayment'])->name('interaconline'); //Interac Online Payment
+    Route::post('/TheatreManager/payment/moneris/approved', [InteracOnlinePaymentController::class, 'interacOnlineApproved'])->name('interaconlineapproved'); //Interac Online approved ressponse
+    Route::post('/TheatreManager/payment/moneris/declined', [InteracOnlinePaymentController::class, 'interacOnlineDeclined'])->name('interaconlinedeclined'); //Interac Online declined ressponse
+    Route::post('/TheatreManager/payment/moneris/canceled', [InteracOnlinePaymentController::class, 'interacOnlineCanceled'])->name('interaconlinedeclined'); //Interac Online transaction canceled ressponse
+    Route::post('/TheatreManager/payment/moneris/verification', [InteracOnlinePaymentController::class, 'interacOnlineVerification'])->name('interaconlineverification'); //Interac Online verification ressponse
     });
 /**Payment Gateways Intergration **/

@@ -83,7 +83,7 @@ class StripePaymentController extends Controller
 
           $charge = $stripe->charges->create([
             'amount' => $cart->totalPrice,
-            'currency' => Session::get('currency'),
+            'currency' => 'usd',
             'source' => $request->stripeToken,
             'description' => 'Purchase  of ' .  $cart->totalQty .  ' items from Zipremitcoin worth ' . $cart->totalPrice . Session::get('currency')   . ' Thank you For Shopping with Us!',
           ]);

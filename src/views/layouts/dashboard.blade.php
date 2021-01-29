@@ -117,7 +117,7 @@
     <!--my scripts-->
     <script src="/sendfoodassets/pixel-html/js/customizedjs.js" defer></script>
     <script src="/sendfoodassets/pixel-html/js/stripe.js" defer></script>
-    <script src="https://gatewayt.moneris.com/chkt/js/chkt_v1.00.js" defer></script>
+    <script src="https://gateway.moneris.com/chkt/js/chkt_v1.00.js" defer></script>
     <script src="/sendfoodassets/pixel-html/js/moneris.js" defer></script>
 
 </body>

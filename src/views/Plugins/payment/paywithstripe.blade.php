@@ -21,18 +21,29 @@
                <form action="{{route('stripe')}}" method="post" id="payment-form">
 
                 @csrf
+                <div class="row justify-content-center">
+                    <!--Card Details-->
+                    <div class="form-group col-md-12">
+                        <label for="city"> <h5>Card Holder Name</h5> </label>
+                        <input id="card-holder-name" class="form-control" type="text">
+  
+                        <div id="card-errors" role="alert"></div>
+                    </div>
+                   </div>
                  <div class="row justify-content-center">
                   <!--Card Details-->
                   <div class="form-group col-md-12">
-                      <label for="city">Card Details</label>
+                      <label for="city"> <h5>Card Details</h5> </label>
                          <div id="card-element"></div>
+                         
                            <div id="card-errors" role="alert"></div>
                   </div>
                  </div>
+
                  <div class="row justify-content-center">
                     <!--Submit-->
                     <div class="form-group col-md-12">
-                        <input type="submit" class="btn btn-lg submit text-color-darkblue text-color-white" value="Pay Now({{Session::get('cart')->totalPrice}})"> 
+                        <input id="card-button" type="submit" class="btn btn-lg submit text-color-darkblue text-color-white" data-secret="{{ $intent->client_secret }}" value="Pay Now({{Session::get('cart')->totalPrice}})"> 
                     </div>
                    </div>
               </div>

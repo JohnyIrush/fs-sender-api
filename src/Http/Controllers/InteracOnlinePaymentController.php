@@ -21,9 +21,45 @@ class InteracOnlinePaymentController extends Controller
     /** Interac online **/
     public function __construct()
     {
-        // default
-        
+        $this->middleware('auth');   
     }
+    /**
+     * Interact Online approved response
+     */
+
+    public function interacOnlineApproved(Request $request)
+    {
+
+    
+    }
+
+    /* Interact Online Declined response
+    */
+
+   public function interacOnlineDeclined(Request $request)
+   {
+
+    
+   }
+
+    /* Interact Online Canceled response
+    */
+
+    public function interacOnlineCanceled(Request $request)
+    {
+ 
+     
+    }
+
+    /* Interact Online Verification response
+    */
+
+    public function interacOnlineVerification(Request $request)
+    {
+ 
+     
+    }
+ 
 
 
     /**

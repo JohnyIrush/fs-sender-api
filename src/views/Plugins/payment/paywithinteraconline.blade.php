@@ -33,7 +33,7 @@
                                     <p>{{ Session::get('success') }}</p>
                                 </div>
                             @endif
-          
+                          <!--
                             <form 
                                     role="form" 
                                     action="{{ route('interaconline') }}" 
@@ -90,6 +90,8 @@
                                 </div>
                                   
                             </form>
+                        -->
+                        <div id="monerisCheckout"></div>
                         </div>
                     </div>        
                 </div>

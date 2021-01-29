@@ -15,6 +15,12 @@ use Cchivhima\Sendfood\Http\Drivers\Cart;
 
 class PaymentController extends Controller
 {
+
+   public function __construct()
+   {
+       $this->middleware('auth');   
+   }   
+
  public function reviewTransfer(){
     // dd(Session::get('receivingmethod'));
     if (!Session::get('cart')->totalQty==0 && !Session::get('receivingmethod')==null && !Session::get('beneficiaryid')==null ) {
